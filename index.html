@@ -42,8 +42,6 @@
       <p>A programmer who love rock and roll</p>
       <nav>
         <ul class="list">
-          <li><a href="/pages/about.html#about">About</a></li>
-          <li><a href="//xmenfolk.github.io" target="_blank">XMenfolk</a></li>
         </ul>
       </nav>
       <ul class="social">
@@ -64,17 +62,119 @@
 
 <article>
   <header>
-    <h2><a href="/pelican-install.html#pelican-install">使用Pelican和GitHub搭建个人博客</a></h2>
+    <h2><a href="/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html#ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou">测试Jenkins构建及禁用Job接口</a></h2>
     <p>
-      Posted on 周四 08 九月 2016 in <a href="/category/pelicanpython.html">Pelican,Python</a>
+      Posted on 周三 13 四月 2016 in <a href="/category/python.html">[Python]</a>
       &#8226; Tagged with
-      <a href="/tag/python.html">Python</a>,      <a href="/tag/pelican.html">Pelican</a>,      <a href="/tag/github.html">GitHub</a>,      <a href="/tag/markdown.html">Markdown</a>      &#8226; <a href="/pelican-install.html#disqus_thread">Leave a comment</a>
+      <a href="/tag/python.html">[Python</a>,      <a href="/tag/apitest.html">ApiTest]</a>      &#8226; <a href="/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html#disqus_thread">Leave a comment</a>
     </p>
   </header>
   <div>
-      <h3>简介</h3>
-<p>Github是一个具有版本管理功能的代码仓库，每个项目都有一个主页，列出项目的源文件。GitHub设计了Pages功能，允许用户自定义项目首页，用来替代默认的源码列表。所以，github Pages可以被认为是用户编写的、托管在github上的静态网页。</p>
-      <a class="btn" href="/pelican-install.html#pelican-install">Continue reading</a>
+      <p>使用python unittest+requests对Jenkins构建及禁用job接口进行测试:</p>
+<div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">HTTPBasicAuth</span>
+
+
+<span class="k">class</span> <span class="nc">JenkinsPostTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 构建job的url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build_job_url</span> <span class="o">=</span> <span class="s1">&#39;http://192.168.217.130:8080/jenkins/job/check_python_version/build&#39;</span>
+        <span class="c1"># 禁用job的url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disable_job_url</span> <span class="o">=</span> <span class="s1">&#39;http://192.168.217.130:8080/jenkins/job/check_python_version/disable&#39;</span>
+        <span class="c1"># 获取job状态等信息的rul</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job_url</span> <span class="o">=</span> <span class="s1">&#39;http://192.168.217.130:8080/jenkins/job/check_python_version/api/json&#39;</span>
+
+    <span class="c1"># 测试构建某一job接口</span>
+    <span class="k">def</span> <span class="nf">test_buildJob</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">build_job_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span>
+        <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+
+    <span class="c1"># 测试禁用某一job接口</span>
+    <span class="k">def</span> <span class="nf">test_disableJob</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 确认job状态是否可执行，&#39;buildable&#39;:&#39;true&#39;</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_JobInfo</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+        <span class="c1"># 禁用job，断言禁用job是否成功</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">disable_job_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="c1"># 获取当前job状态</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_JobInfo</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">status</span>
+
+    <span class="c1"># 获取当前job信息</span>
+    <span class="k">def</span> <span class="nf">get_JobInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">job_info</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">job_url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">job_info</span><span class="p">[</span><span class="s1">&#39;buildable&#39;</span><span class="p">]</span>
+</pre></div>
+      <a class="btn" href="/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html#ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou">Continue reading</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li.html#yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li">一个简单Python单元测试用例</a></h2>
+    <p>
+      Posted on 周三 13 四月 2016 in <a href="/category/python.html">[python]</a>
+      &#8226; Tagged with
+      <a href="/tag/python.html">[python]</a>      &#8226; <a href="/yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li.html#disqus_thread">Leave a comment</a>
+    </p>
+  </header>
+  <div>
+      <p>使用python unittest 框架进行单元测试</p>
+<div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">测试除法</span>
+<span class="sd">1、自动以1个除法函数div</span>
+<span class="sd">2、测试 1/1</span>
+<span class="sd">3、测试 3/4</span>
+<span class="sd">4、测试 3/0</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+    <span class="c1"># 1 / 2 = 1</span>
+
+
+<span class="k">class</span> <span class="nc">MyfirstTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s1">&#39;run before every testcase&#39;</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s1">&#39;run after every testcase&#39;</span>
+
+    <span class="k">def</span> <span class="nf">test_1div1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s1">&#39;case1:1/1&#39;</span>
+        <span class="n">case1</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">case1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_3div4</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s1">&#39;case1:3/4&#39;</span>
+        <span class="n">case2</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">case2</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_3div0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s1">&#39;case3:3/0&#39;</span>
+        <span class="n">case3</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">,</span> <span class="n">div</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+      <a class="btn" href="/yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li.html#yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li">Continue reading</a>
   </div>
 </article>
 

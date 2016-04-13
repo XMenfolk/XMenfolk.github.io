@@ -20,17 +20,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
 
-    <meta name="author" content="Angie" />
-    <meta name="description" content="Angie's Thoughts and Writings" />
+<meta name="author" content="Angie" />
+<meta name="description" content="使用python unittest+requests对Jenkins构建及禁用job接口进行测试: # coding=utf-8 import unittest import requests import json from requests.auth import HTTPBasicAuth class JenkinsPostTest(unittest.TestCase): def setUp(self): # 构建job的url self.build_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/build' # 禁用job的url self.disable_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/disable' # 获取job状态等信息的rul self.job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/api/json' # 测试构建某一job接口 def test_buildJob(self): r = requests.post(self.build_job_url, data=None, auth=('admin', 'admin')) print r.status_code self.assertEqual(r.status_code, 201) # 测试禁用某一job接口 def test_disableJob(self): # 确认job状态是否可执行，'buildable':'true' status = self.get_JobInfo() self.assertTrue(status) # 禁用job，断言禁用job是否成功 r = requests.post(self.disable_job_url, data=None, auth=('admin', 'admin')) self.assertEqual(r.status_code, 200) # 获取当前job状态 status = self.get_JobInfo() self.assertFalse(status) print status # 获取当前job信息 def get_JobInfo(self): job_info = requests.get(self.job_url, auth=('admin', 'admin')).json() return job_info['buildable']" />
+<meta name="keywords" content="[Python, ApiTest]">
 <meta property="og:site_name" content="Angie's Blog"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="Angie's Blog"/>
-<meta property="og:description" content="Angie's Thoughts and Writings"/>
+<meta property="og:title" content="测试Jenkins构建及禁用Job接口"/>
+<meta property="og:description" content="使用python unittest+requests对Jenkins构建及禁用job接口进行测试: # coding=utf-8 import unittest import requests import json from requests.auth import HTTPBasicAuth class JenkinsPostTest(unittest.TestCase): def setUp(self): # 构建job的url self.build_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/build' # 禁用job的url self.disable_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/disable' # 获取job状态等信息的rul self.job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/api/json' # 测试构建某一job接口 def test_buildJob(self): r = requests.post(self.build_job_url, data=None, auth=('admin', 'admin')) print r.status_code self.assertEqual(r.status_code, 201) # 测试禁用某一job接口 def test_disableJob(self): # 确认job状态是否可执行，'buildable':'true' status = self.get_JobInfo() self.assertTrue(status) # 禁用job，断言禁用job是否成功 r = requests.post(self.disable_job_url, data=None, auth=('admin', 'admin')) self.assertEqual(r.status_code, 200) # 获取当前job状态 status = self.get_JobInfo() self.assertFalse(status) print status # 获取当前job信息 def get_JobInfo(self): job_info = requests.get(self.job_url, auth=('admin', 'admin')).json() return job_info['buildable']"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content=""/>
+<meta property="og:url" content="/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2016-04-13 00:00:00-03:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/angie.html">
+<meta property="article:section" content="[Python]"/>
+<meta property="article:tag" content="[Python"/>
+<meta property="article:tag" content="ApiTest]"/>
 <meta property="og:image" content="/images/profile.jpg">
-
-  <title>Angie's Blog &ndash; Posts by: Angie</title>
+  <title>Angie's Blog &ndash; 测试Jenkins构建及禁用Job接口</title>
 </head>
 <body>
   <aside>
@@ -62,15 +68,11 @@
 
 <article>
   <header>
-    <h2><a href="/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html#ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou">测试Jenkins构建及禁用Job接口</a></h2>
-    <p>
-      Posted on 周三 13 四月 2016 in <a href="/category/python.html">[Python]</a>
-      &#8226; Tagged with
-      <a href="/tag/python.html">[Python</a>,      <a href="/tag/apitest.html">ApiTest]</a>      &#8226; <a href="/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html#disqus_thread">Leave a comment</a>
-    </p>
+    <h1 id="ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou">测试Jenkins构建及禁用Job接口</h1>
+    <p>Posted on 周三 13 四月 2016 in <a href="/category/python.html">[Python]</a></p>
   </header>
   <div>
-      <p>使用python unittest+requests对Jenkins构建及禁用job接口进行测试:</p>
+    <p>使用python unittest+requests对Jenkins构建及禁用job接口进行测试:</p>
 <div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
 
 <span class="kn">import</span> <span class="nn">unittest</span>
@@ -114,72 +116,29 @@
         <span class="n">job_info</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">job_url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">job_info</span><span class="p">[</span><span class="s1">&#39;buildable&#39;</span><span class="p">]</span>
 </pre></div>
-      <a class="btn" href="/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html#ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou">Continue reading</a>
   </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li.html#yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li">一个简单Python单元测试用例</a></h2>
+  <div class="tag-cloud">
     <p>
-      Posted on 周三 13 四月 2016 in <a href="/category/python.html">[python]</a>
-      &#8226; Tagged with
-      <a href="/tag/python.html">[python]</a>      &#8226; <a href="/yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li.html#disqus_thread">Leave a comment</a>
+      <a href="/tag/python.html">[Python</a>
+      <a href="/tag/apitest.html">ApiTest]</a>
     </p>
-  </header>
-  <div>
-      <p>使用python unittest 框架进行单元测试</p>
-<div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
-<span class="kn">import</span> <span class="nn">unittest</span>
-
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">测试除法</span>
-<span class="sd">1、自动以1个除法函数div</span>
-<span class="sd">2、测试 1/1</span>
-<span class="sd">3、测试 3/4</span>
-<span class="sd">4、测试 3/0</span>
-<span class="sd">&#39;&#39;&#39;</span>
-
-
-<span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-    <span class="c1"># 1 / 2 = 1</span>
-
-
-<span class="k">class</span> <span class="nc">MyfirstTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s1">&#39;run before every testcase&#39;</span>
-
-    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s1">&#39;run after every testcase&#39;</span>
-
-    <span class="k">def</span> <span class="nf">test_1div1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s1">&#39;case1:1/1&#39;</span>
-        <span class="n">case1</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">case1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">test_3div4</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s1">&#39;case1:3/4&#39;</span>
-        <span class="n">case2</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">case2</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">test_3div0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s1">&#39;case3:3/0&#39;</span>
-        <span class="n">case3</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">,</span> <span class="n">div</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-</pre></div>
-      <a class="btn" href="/yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li.html#yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li">Continue reading</a>
   </div>
+  <div class="center social-share">
+    <p>Like this article? Share it with your friends!</p>
+    <div class="addthis_native_toolbox"></div>
+    <div class="addthis_sharing_toolbox"></div>
+  </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'test-test';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </article>
-
-  <div class="pagination">
-  </div>
 
     <footer>
 <p>
@@ -220,21 +179,20 @@
 
 <script type="application/ld+json">
 {
-  "@context" : "http://schema.org",
-  "@type" : "Blog",
-  "name": " Angie's Blog ",
-  "url" : "",
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "name": "测试Jenkins构建及禁用Job接口",
+  "headline": "测试Jenkins构建及禁用Job接口",
+  "datePublished": "2016-04-13 00:00:00-03:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Angie",
+    "url": "/author/angie.html"
+  },
   "image": "/images/profile.jpg",
-  "description": "Angie's Thoughts and Writings"
+  "url": "/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html",
+  "description": "使用python unittest+requests对Jenkins构建及禁用job接口进行测试: # coding=utf-8 import unittest import requests import json from requests.auth import HTTPBasicAuth class JenkinsPostTest(unittest.TestCase): def setUp(self): # 构建job的url self.build_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/build' # 禁用job的url self.disable_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/disable' # 获取job状态等信息的rul self.job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/api/json' # 测试构建某一job接口 def test_buildJob(self): r = requests.post(self.build_job_url, data=None, auth=('admin', 'admin')) print r.status_code self.assertEqual(r.status_code, 201) # 测试禁用某一job接口 def test_disableJob(self): # 确认job状态是否可执行，'buildable':'true' status = self.get_JobInfo() self.assertTrue(status) # 禁用job，断言禁用job是否成功 r = requests.post(self.disable_job_url, data=None, auth=('admin', 'admin')) self.assertEqual(r.status_code, 200) # 获取当前job状态 status = self.get_JobInfo() self.assertFalse(status) print status # 获取当前job信息 def get_JobInfo(self): job_info = requests.get(self.job_url, auth=('admin', 'admin')).json() return job_info['buildable']"
 }
-</script><script type="text/javascript">
-    var disqus_shortname = 'test-test';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-</body>
+</script></body>
 </html>

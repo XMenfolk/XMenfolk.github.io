@@ -3,14 +3,14 @@
 <head>
   <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet/less" type="text/css" href="xmenfolk.github.io/theme/stylesheet/style.less">
+    <link rel="stylesheet/less" type="text/css" href="/theme/stylesheet/style.less">
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
 
-  <link rel="stylesheet" type="text/css" href="xmenfolk.github.io/theme/stylesheet/pygments.min.css">
-  <link rel="stylesheet" type="text/css" href="xmenfolk.github.io/theme/stylesheet/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/stylesheet/pygments.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/stylesheet/font-awesome.min.css">
 
 
-    <link href="xmenfolk.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Angie's Blog Atom">
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Angie's Blog Atom">
 
 
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -27,11 +27,11 @@
 <meta property="og:title" content="测试Jenkins构建及禁用Job接口"/>
 <meta property="og:description" content="使用python unittest+requests对Jenkins构建及禁用job接口进行测试: # coding=utf-8 import unittest import requests import json from requests.auth import HTTPBasicAuth class JenkinsPostTest(unittest.TestCase): def setUp(self): # 构建job的url self.build_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/build' # 禁用job的url self.disable_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/disable' # 获取job状态等信息的rul self.job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/api/json' # 测试构建某一job接口 def test_buildJob(self): r = requests.post(self.build_job_url, data=None, auth=('admin', 'admin')) print r.status_code self.assertEqual(r.status_code, 201) # 测试禁用某一job接口 def test_disableJob(self): # 确认job状态是否可执行，'buildable':'true' status = self.get_JobInfo() self.assertTrue(status) # 禁用job，断言禁用job是否成功 r = requests.post(self.disable_job_url, data=None, auth=('admin', 'admin')) self.assertEqual(r.status_code, 200) # 获取当前job状态 status = self.get_JobInfo() self.assertFalse(status) print status # 获取当前job信息 def get_JobInfo(self): job_info = requests.get(self.job_url, auth=('admin', 'admin')).json() return job_info['buildable']"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="xmenfolk.github.io/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html"/>
+<meta property="og:url" content="/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2016-04-13 00:00:00-03:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="xmenfolk.github.io/author/angie.html">
+<meta property="article:author" content="/author/angie.html">
 <meta property="article:section" content="[Python]"/>
 <meta property="article:tag" content="[Python"/>
 <meta property="article:tag" content="ApiTest]"/>
@@ -41,10 +41,10 @@
 <body>
   <aside>
     <div>
-      <a href="xmenfolk.github.io">
+      <a href="">
         <img src="/images/profile.jpg" alt="Angie" title="Angie">
       </a>
-      <h1><a href="xmenfolk.github.io">Angie</a></h1>
+      <h1><a href="">Angie</a></h1>
       <p>A programmer who love rock and roll</p>
       <nav>
         <ul class="list">
@@ -60,17 +60,17 @@
   </aside>
   <main>
     <nav>
-      <a href="xmenfolk.github.io">Home</a>
+      <a href="">Home</a>
       <a href="/archives.html">Archives</a>
       <a href="/categories.html">Categories</a>
       <a href="/tags.html">Tags</a>
-      <a href="xmenfolk.github.io/feeds/all.atom.xml">Atom</a>
+      <a href="/feeds/all.atom.xml">Atom</a>
     </nav>
 
 <article>
   <header>
     <h1 id="ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou">测试Jenkins构建及禁用Job接口</h1>
-    <p>Posted on 周三 13 四月 2016 in <a href="xmenfolk.github.io/category/python.html">[Python]</a></p>
+    <p>Posted on 周三 13 四月 2016 in <a href="/category/python.html">[Python]</a></p>
   </header>
   <div>
     <p>使用python unittest+requests对Jenkins构建及禁用job接口进行测试:</p>
@@ -120,8 +120,8 @@
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="xmenfolk.github.io/tag/python.html">[Python</a>
-      <a href="xmenfolk.github.io/tag/apitest.html">ApiTest]</a>
+      <a href="/tag/python.html">[Python</a>
+      <a href="/tag/apitest.html">ApiTest]</a>
     </p>
   </div>
   <div class="center social-share">
@@ -189,10 +189,10 @@
   "author": {
     "@type": "Person",
     "name": "Angie",
-    "url": "xmenfolk.github.io/author/angie.html"
+    "url": "/author/angie.html"
   },
   "image": "/images/profile.jpg",
-  "url": "xmenfolk.github.io/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html",
+  "url": "/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html",
   "description": "使用python unittest+requests对Jenkins构建及禁用job接口进行测试: # coding=utf-8 import unittest import requests import json from requests.auth import HTTPBasicAuth class JenkinsPostTest(unittest.TestCase): def setUp(self): # 构建job的url self.build_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/build' # 禁用job的url self.disable_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/disable' # 获取job状态等信息的rul self.job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/api/json' # 测试构建某一job接口 def test_buildJob(self): r = requests.post(self.build_job_url, data=None, auth=('admin', 'admin')) print r.status_code self.assertEqual(r.status_code, 201) # 测试禁用某一job接口 def test_disableJob(self): # 确认job状态是否可执行，'buildable':'true' status = self.get_JobInfo() self.assertTrue(status) # 禁用job，断言禁用job是否成功 r = requests.post(self.disable_job_url, data=None, auth=('admin', 'admin')) self.assertEqual(r.status_code, 200) # 获取当前job状态 status = self.get_JobInfo() self.assertFalse(status) print status # 获取当前job信息 def get_JobInfo(self): job_info = requests.get(self.job_url, auth=('admin', 'admin')).json() return job_info['buildable']"
 }
 </script></body>

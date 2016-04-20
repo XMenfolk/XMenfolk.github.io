@@ -22,19 +22,19 @@
 
 <meta name="author" content="Angie" />
 <meta name="description" content="使用python unittest+requests对Jenkins构建及禁用job接口进行测试: # coding=utf-8 import unittest import requests import json from requests.auth import HTTPBasicAuth class JenkinsPostTest(unittest.TestCase): def setUp(self): # 构建job的url self.build_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/build' # 禁用job的url self.disable_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/disable' # 获取job状态等信息的rul self.job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/api/json' # 测试构建某一job接口 def test_buildJob(self): r = requests.post(self.build_job_url, data=None, auth=('admin', 'admin')) print r.status_code self.assertEqual(r.status_code, 201) # 测试禁用某一job接口 def test_disableJob(self): # 确认job状态是否可执行，'buildable':'true' status = self.get_JobInfo() self.assertTrue(status) # 禁用job，断言禁用job是否成功 r = requests.post(self.disable_job_url, data=None, auth=('admin', 'admin')) self.assertEqual(r.status_code, 200) # 获取当前job状态 status = self.get_JobInfo() self.assertFalse(status) print status # 获取当前job信息 def get_JobInfo(self): job_info = requests.get(self.job_url, auth=('admin', 'admin')).json() return job_info['buildable']" />
-<meta name="keywords" content="[Python, ApiTest]">
+<meta name="keywords" content="[Python, 接口测试]">
 <meta property="og:site_name" content="Angie's Blog"/>
 <meta property="og:title" content="测试Jenkins构建及禁用Job接口"/>
 <meta property="og:description" content="使用python unittest+requests对Jenkins构建及禁用job接口进行测试: # coding=utf-8 import unittest import requests import json from requests.auth import HTTPBasicAuth class JenkinsPostTest(unittest.TestCase): def setUp(self): # 构建job的url self.build_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/build' # 禁用job的url self.disable_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/disable' # 获取job状态等信息的rul self.job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/api/json' # 测试构建某一job接口 def test_buildJob(self): r = requests.post(self.build_job_url, data=None, auth=('admin', 'admin')) print r.status_code self.assertEqual(r.status_code, 201) # 测试禁用某一job接口 def test_disableJob(self): # 确认job状态是否可执行，'buildable':'true' status = self.get_JobInfo() self.assertTrue(status) # 禁用job，断言禁用job是否成功 r = requests.post(self.disable_job_url, data=None, auth=('admin', 'admin')) self.assertEqual(r.status_code, 200) # 获取当前job状态 status = self.get_JobInfo() self.assertFalse(status) print status # 获取当前job信息 def get_JobInfo(self): job_info = requests.get(self.job_url, auth=('admin', 'admin')).json() return job_info['buildable']"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://xmenfolk.github.io/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html"/>
+<meta property="og:url" content="https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2016-04-13 00:00:00-03:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://xmenfolk.github.io/author/angie.html">
 <meta property="article:section" content="[Python]"/>
 <meta property="article:tag" content="[Python"/>
-<meta property="article:tag" content="ApiTest]"/>
+<meta property="article:tag" content="接口测试]"/>
 <meta property="og:image" content="/images/profile.jpg">
   <title>Angie's Blog &ndash; 测试Jenkins构建及禁用Job接口</title>
 </head>
@@ -69,7 +69,7 @@
 
 <article>
   <header>
-    <h1 id="ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou">测试Jenkins构建及禁用Job接口</h1>
+    <h1 id="JenkinsBuildJobApiTest">测试Jenkins构建及禁用Job接口</h1>
     <p>Posted on 周三 13 四月 2016 in <a href="https://xmenfolk.github.io/category/python.html">[Python]</a></p>
   </header>
   <div>
@@ -121,7 +121,7 @@
   <div class="tag-cloud">
     <p>
       <a href="https://xmenfolk.github.io/tag/python.html">[Python</a>
-      <a href="https://xmenfolk.github.io/tag/apitest.html">ApiTest]</a>
+      <a href="https://xmenfolk.github.io/tag/jie-kou-ce-shi.html">接口测试]</a>
     </p>
   </div>
   <div class="center social-share">
@@ -142,27 +142,13 @@
 </article>
 
     <footer>
-<p>
-  &copy; Angie 2016 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
-</p>
-<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p><p>
-  <a rel="license"
-     href="http://creativecommons.org/licenses/by-sa/4.0/"
-     target="_blank">
-    <img alt="Creative Commons License"
-         title="Creative Commons License"
-         style="border-width:0"
-         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
-         width="80"
-         height="15"/>
-  </a>
-<!-- StatusCake -->
-<a href="https://www.statuscake.com" title="Angie's Blog Uptime">
-  <img src="https://www.statuscake.com/App/button/index.php?Track=test-test&amp;Days=7&amp;Design=6" alt="Angie's Blog Uptime" width="96" height="15"/>
-</a>
-<!-- End StatusCake --></p>    </footer>
+      <p>&copy; Angie 2016</p>
+      <!--
+        <p>&copy; Angie 2016</p>
+<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>      -->
+    </footer>
   </main>
-
+<!--
 <!-- Google Analytics -->
 <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -192,8 +178,9 @@
     "url": "https://xmenfolk.github.io/author/angie.html"
   },
   "image": "/images/profile.jpg",
-  "url": "https://xmenfolk.github.io/ce-shi-jenkinsgou-jian-ji-jin-yong-jobjie-kou.html",
+  "url": "https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/",
   "description": "使用python unittest+requests对Jenkins构建及禁用job接口进行测试: # coding=utf-8 import unittest import requests import json from requests.auth import HTTPBasicAuth class JenkinsPostTest(unittest.TestCase): def setUp(self): # 构建job的url self.build_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/build' # 禁用job的url self.disable_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/disable' # 获取job状态等信息的rul self.job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/api/json' # 测试构建某一job接口 def test_buildJob(self): r = requests.post(self.build_job_url, data=None, auth=('admin', 'admin')) print r.status_code self.assertEqual(r.status_code, 201) # 测试禁用某一job接口 def test_disableJob(self): # 确认job状态是否可执行，'buildable':'true' status = self.get_JobInfo() self.assertTrue(status) # 禁用job，断言禁用job是否成功 r = requests.post(self.disable_job_url, data=None, auth=('admin', 'admin')) self.assertEqual(r.status_code, 200) # 获取当前job状态 status = self.get_JobInfo() self.assertFalse(status) print status # 获取当前job信息 def get_JobInfo(self): job_info = requests.get(self.job_url, auth=('admin', 'admin')).json() return job_info['buildable']"
 }
-</script></body>
+</script>-->
+</body>
 </html>

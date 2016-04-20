@@ -27,7 +27,7 @@
 <meta property="og:title" content="一个简单Python单元测试用例"/>
 <meta property="og:description" content="使用python unittest 框架进行单元测试 # coding=utf-8 import unittest ''' 测试除法 1、自动以1个除法函数div 2、测试 1/1 3、测试 3/4 4、测试 3/0 ''' def div(a, b): return a / b # 1 / 2 = 1 class MyfirstTestCase(unittest.TestCase): pass def setUp(self): print 'run before every testcase' def tearDown(self): print 'run after every testcase' def test_1div1(self): print 'case1:1/1' case1 = div(1, 1) self.assertEqual(case1, 1/1) def test_3div4(self): print 'case1:3/4' case2 = div(3, 4) self.assertEqual(case2, 3/4) def test_3div0(self): print 'case3:3/0' case3 = div(3, 0) self.assertRaises(ZeroDivisionError, div, 3, 0) if __name__ == '__main__': unittest.main()"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://xmenfolk.github.io/yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li.html"/>
+<meta property="og:url" content="https://xmenfolk.github.io/posts/simplePythonUnittest/"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2016-04-13 00:00:00-03:00"/>
 <meta property="article:modified_time" content=""/>
@@ -68,7 +68,7 @@
 
 <article>
   <header>
-    <h1 id="yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li">一个简单Python单元测试用例</h1>
+    <h1 id="simplePythonUnittest">一个简单Python单元测试用例</h1>
     <p>Posted on 周三 13 四月 2016 in <a href="https://xmenfolk.github.io/category/python.html">[python]</a></p>
   </header>
   <div>
@@ -142,27 +142,13 @@
 </article>
 
     <footer>
-<p>
-  &copy; Angie 2016 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
-</p>
-<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p><p>
-  <a rel="license"
-     href="http://creativecommons.org/licenses/by-sa/4.0/"
-     target="_blank">
-    <img alt="Creative Commons License"
-         title="Creative Commons License"
-         style="border-width:0"
-         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
-         width="80"
-         height="15"/>
-  </a>
-<!-- StatusCake -->
-<a href="https://www.statuscake.com" title="Angie's Blog Uptime">
-  <img src="https://www.statuscake.com/App/button/index.php?Track=test-test&amp;Days=7&amp;Design=6" alt="Angie's Blog Uptime" width="96" height="15"/>
-</a>
-<!-- End StatusCake --></p>    </footer>
+      <p>&copy; Angie 2016</p>
+      <!--
+        <p>&copy; Angie 2016</p>
+<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>      -->
+    </footer>
   </main>
-
+<!--
 <!-- Google Analytics -->
 <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -192,8 +178,9 @@
     "url": "https://xmenfolk.github.io/author/angie.html"
   },
   "image": "/images/profile.jpg",
-  "url": "https://xmenfolk.github.io/yi-ge-jian-dan-pythondan-yuan-ce-shi-yong-li.html",
+  "url": "https://xmenfolk.github.io/posts/simplePythonUnittest/",
   "description": "使用python unittest 框架进行单元测试 # coding=utf-8 import unittest ''' 测试除法 1、自动以1个除法函数div 2、测试 1/1 3、测试 3/4 4、测试 3/0 ''' def div(a, b): return a / b # 1 / 2 = 1 class MyfirstTestCase(unittest.TestCase): pass def setUp(self): print 'run before every testcase' def tearDown(self): print 'run after every testcase' def test_1div1(self): print 'case1:1/1' case1 = div(1, 1) self.assertEqual(case1, 1/1) def test_3div4(self): print 'case1:3/4' case2 = div(3, 4) self.assertEqual(case2, 3/4) def test_3div0(self): print 'case3:3/0' case3 = div(3, 0) self.assertRaises(ZeroDivisionError, div, 3, 0) if __name__ == '__main__': unittest.main()"
 }
-</script></body>
+</script>-->
+</body>
 </html>

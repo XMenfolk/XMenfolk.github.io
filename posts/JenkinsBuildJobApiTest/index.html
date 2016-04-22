@@ -32,7 +32,7 @@
 <meta property="article:published_time" content="2016-04-13 00:00:00-03:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://xmenfolk.github.io/author/angie.html">
-<meta property="article:section" content="[Python]"/>
+<meta property="article:section" content="[接口测试]"/>
 <meta property="article:tag" content="[Python"/>
 <meta property="article:tag" content="接口测试]"/>
 <meta property="og:image" content="/images/profile.jpg">
@@ -52,9 +52,9 @@
         </ul>
       </nav>
       <ul class="social">
-        <li><a class="sc-facebook" href="https://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-weibo" href="http://weibo.com/1674094122/profile?topnav=1&wvr=6&is_all=1" target="_blank"><i class="fa fa-weibo"></i></a></li>
         <li><a class="sc-github" href="https://github.com/XMenfolk" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-google" href="https://google.com/" target="_blank"><i class="fa fa-google"></i></a></li>
+        <li><a class="sc-google" href="https://google.com.hk" target="_blank"><i class="fa fa-google"></i></a></li>
       </ul>
     </div>
   </aside>
@@ -70,7 +70,7 @@
 <article>
   <header>
     <h1 id="JenkinsBuildJobApiTest">测试Jenkins构建及禁用Job接口</h1>
-    <p>Posted on 周三 13 四月 2016 in <a href="https://xmenfolk.github.io/category/python.html">[Python]</a></p>
+    <p>Posted on 周三 13 四月 2016 in <a href="https://xmenfolk.github.io/category/jie-kou-ce-shi.html">[接口测试]</a></p>
   </header>
   <div>
     <p>使用python unittest+requests对Jenkins构建及禁用job接口进行测试:</p>
@@ -148,8 +148,18 @@
 <p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>      -->
     </footer>
   </main>
-<!--
 
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76772420-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-XX3242XX" async="async"></script>
 
@@ -171,6 +181,5 @@
   "url": "https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/",
   "description": "使用python unittest+requests对Jenkins构建及禁用job接口进行测试: # coding=utf-8 import unittest import requests import json from requests.auth import HTTPBasicAuth class JenkinsPostTest(unittest.TestCase): def setUp(self): # 构建job的url self.build_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/build' # 禁用job的url self.disable_job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/disable' # 获取job状态等信息的rul self.job_url = 'http://192.168.217.130:8080/jenkins/job/check_python_version/api/json' # 测试构建某一job接口 def test_buildJob(self): r = requests.post(self.build_job_url, data=None, auth=('admin', 'admin')) print r.status_code self.assertEqual(r.status_code, 201) # 测试禁用某一job接口 def test_disableJob(self): # 确认job状态是否可执行，'buildable':'true' status = self.get_JobInfo() self.assertTrue(status) # 禁用job，断言禁用job是否成功 r = requests.post(self.disable_job_url, data=None, auth=('admin', 'admin')) self.assertEqual(r.status_code, 200) # 获取当前job状态 status = self.get_JobInfo() self.assertFalse(status) print status # 获取当前job信息 def get_JobInfo(self): job_info = requests.get(self.job_url, auth=('admin', 'admin')).json() return job_info['buildable']"
 }
-</script>-->
-</body>
+</script></body>
 </html>

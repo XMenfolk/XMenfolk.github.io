@@ -21,11 +21,11 @@
   <meta name="robots" content="index, follow" />
 
 <meta name="author" content="Angie" />
-<meta name="description" content="使用python unittest 框架进行单元测试 # coding=utf-8 import unittest ''' 测试除法 1、自动以1个除法函数div 2、测试 1/1 3、测试 3/4 4、测试 3/0 ''' def div(a, b): return a / b # 1 / 2 = 1 class MyfirstTestCase(unittest.TestCase): pass def setUp(self): print 'run before every testcase' def tearDown(self): print 'run after every testcase' def test_1div1(self): print 'case1:1/1' case1 = div(1, 1) self.assertEqual(case1, 1/1) def test_3div4(self): print 'case1:3/4' case2 = div(3, 4) self.assertEqual(case2, 3/4) def test_3div0(self): print 'case3:3/0' case3 = div(3, 0) self.assertRaises(ZeroDivisionError, div, 3, 0) if __name__ == '__main__': unittest.main()" />
+<meta name="description" content="使用python unittest 框架进行单元测试 # coding=utf-8 import unittest ''' 测试除法 1、自定义1个除法函数div 2、测试 1/1 3、测试 3/4 4、测试 3/0 ''' def div(a, b): return a / b # 1 / 2 = 1 class MyfirstTestCase(unittest.TestCase): pass def setUp(self): print 'run before every testcase' def tearDown(self): print 'run after every testcase' def test_1div1(self): print 'case1:1/1' case1 = div(1, 1) self.assertEqual(case1, 1/1) def test_3div4(self): print 'case1:3/4' case2 = div(3, 4) self.assertEqual(case2, 3/4) def test_3div0(self): print 'case3:3/0' case3 = div(3, 0) self.assertRaises(ZeroDivisionError, div, 3, 0) if __name__ == '__main__': unittest.main()" />
 <meta name="keywords" content="[python]">
 <meta property="og:site_name" content="Angie's Blog"/>
 <meta property="og:title" content="一个简单Python单元测试用例"/>
-<meta property="og:description" content="使用python unittest 框架进行单元测试 # coding=utf-8 import unittest ''' 测试除法 1、自动以1个除法函数div 2、测试 1/1 3、测试 3/4 4、测试 3/0 ''' def div(a, b): return a / b # 1 / 2 = 1 class MyfirstTestCase(unittest.TestCase): pass def setUp(self): print 'run before every testcase' def tearDown(self): print 'run after every testcase' def test_1div1(self): print 'case1:1/1' case1 = div(1, 1) self.assertEqual(case1, 1/1) def test_3div4(self): print 'case1:3/4' case2 = div(3, 4) self.assertEqual(case2, 3/4) def test_3div0(self): print 'case3:3/0' case3 = div(3, 0) self.assertRaises(ZeroDivisionError, div, 3, 0) if __name__ == '__main__': unittest.main()"/>
+<meta property="og:description" content="使用python unittest 框架进行单元测试 # coding=utf-8 import unittest ''' 测试除法 1、自定义1个除法函数div 2、测试 1/1 3、测试 3/4 4、测试 3/0 ''' def div(a, b): return a / b # 1 / 2 = 1 class MyfirstTestCase(unittest.TestCase): pass def setUp(self): print 'run before every testcase' def tearDown(self): print 'run after every testcase' def test_1div1(self): print 'case1:1/1' case1 = div(1, 1) self.assertEqual(case1, 1/1) def test_3div4(self): print 'case1:3/4' case2 = div(3, 4) self.assertEqual(case2, 3/4) def test_3div0(self): print 'case3:3/0' case3 = div(3, 0) self.assertRaises(ZeroDivisionError, div, 3, 0) if __name__ == '__main__': unittest.main()"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="https://xmenfolk.github.io/posts/simplePythonUnittest/"/>
 <meta property="og:type" content="article"/>
@@ -56,6 +56,11 @@
         <li><a class="sc-google" href="https://google.com.hk" target="_blank"><i class="fa fa-google"></i></a></li>
       </ul>
     </div>
+
+    <!--form class="navbar-search pull-right" action="/search.html">
+      <input type="text" class="search-query" placeholder="Search" name="q" id="s">
+   </form>-->
+
   </aside>
   <main>
     <nav>
@@ -78,7 +83,7 @@
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">测试除法</span>
-<span class="sd">1、自动以1个除法函数div</span>
+<span class="sd">1、自定义1个除法函数div</span>
 <span class="sd">2、测试 1/1</span>
 <span class="sd">3、测试 3/4</span>
 <span class="sd">4、测试 3/0</span>
@@ -179,7 +184,7 @@
   },
   "image": "/images/profile.jpg",
   "url": "https://xmenfolk.github.io/posts/simplePythonUnittest/",
-  "description": "使用python unittest 框架进行单元测试 # coding=utf-8 import unittest ''' 测试除法 1、自动以1个除法函数div 2、测试 1/1 3、测试 3/4 4、测试 3/0 ''' def div(a, b): return a / b # 1 / 2 = 1 class MyfirstTestCase(unittest.TestCase): pass def setUp(self): print 'run before every testcase' def tearDown(self): print 'run after every testcase' def test_1div1(self): print 'case1:1/1' case1 = div(1, 1) self.assertEqual(case1, 1/1) def test_3div4(self): print 'case1:3/4' case2 = div(3, 4) self.assertEqual(case2, 3/4) def test_3div0(self): print 'case3:3/0' case3 = div(3, 0) self.assertRaises(ZeroDivisionError, div, 3, 0) if __name__ == '__main__': unittest.main()"
+  "description": "使用python unittest 框架进行单元测试 # coding=utf-8 import unittest ''' 测试除法 1、自定义1个除法函数div 2、测试 1/1 3、测试 3/4 4、测试 3/0 ''' def div(a, b): return a / b # 1 / 2 = 1 class MyfirstTestCase(unittest.TestCase): pass def setUp(self): print 'run before every testcase' def tearDown(self): print 'run after every testcase' def test_1div1(self): print 'case1:1/1' case1 = div(1, 1) self.assertEqual(case1, 1/1) def test_3div4(self): print 'case1:3/4' case2 = div(3, 4) self.assertEqual(case2, 3/4) def test_3div0(self): print 'case3:3/0' case3 = div(3, 0) self.assertRaises(ZeroDivisionError, div, 3, 0) if __name__ == '__main__': unittest.main()"
 }
 </script></body>
 </html>

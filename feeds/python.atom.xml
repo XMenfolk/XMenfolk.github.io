@@ -5,7 +5,7 @@
 
 &lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
 &lt;span class="sd"&gt;测试除法&lt;/span&gt;
-&lt;span class="sd"&gt;1、自动以1个除法函数div&lt;/span&gt;
+&lt;span class="sd"&gt;1、自定义1个除法函数div&lt;/span&gt;
 &lt;span class="sd"&gt;2、测试 1/1&lt;/span&gt;
 &lt;span class="sd"&gt;3、测试 3/4&lt;/span&gt;
 &lt;span class="sd"&gt;4、测试 3/0&lt;/span&gt;

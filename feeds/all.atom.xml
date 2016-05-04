@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Angie's Blog</title><link href="https://xmenfolk.github.io/" rel="alternate"></link><link href="https://xmenfolk.github.io/feeds/all.atom.xml" rel="self"></link><id>https://xmenfolk.github.io/</id><updated>2016-04-20T00:00:00-03:00</updated><entry><title>接口测试之基础篇</title><link href="https://xmenfolk.github.io/posts/intefacetestBase/" rel="alternate"></link><published>2016-04-20T00:00:00-03:00</published><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-04-20:posts/intefacetestBase/</id><summary type="html">&lt;h4&gt;接口测试简介&lt;/h4&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Angie's Blog</title><link href="https://xmenfolk.github.io/" rel="alternate"></link><link href="https://xmenfolk.github.io/feeds/all.atom.xml" rel="self"></link><id>https://xmenfolk.github.io/</id><updated>2016-05-04T00:00:00-03:00</updated><entry><title>用Shell部署测试环境</title><link href="https://xmenfolk.github.io/posts/theDeploymentEnvironment/" rel="alternate"></link><published>2016-05-04T00:00:00-03:00</published><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-05-04:posts/theDeploymentEnvironment/</id><summary type="html">&lt;h4&gt;测试环境介绍&lt;/h4&gt;
+&lt;p&gt;Testing environment（测试环境）是指测试运行其上的软件和硬件环境的描述，以及任何其它与被测软件交互的软件，包括驱动和桩。&lt;br /&gt;
+测试环境=软件+硬件+网络+数据准备+测试工具&lt;br /&gt;
+以上为百科定义  &lt;/p&gt;
+&lt;p&gt;说的通俗一点，测试环境就是为了测试一个系统而应该具备的所有初始条件.&lt;br /&gt;
+比如说---喝水，必须有：喝水的东西（软硬件）、水（数据）...  &lt;/p&gt;
+&lt;h4&gt;项目环境举例&lt;/h4&gt;
+&lt;p&gt;服务端开发语言：Java&lt;br /&gt;
+Web应用服务器：Tomcat&lt;br /&gt;
+项目构建工具：Maven&lt;br /&gt;
+数据库：Mysql&lt;br /&gt;
+版本控制：Git&lt;br /&gt;
+...&lt;br /&gt;
+如上环境所需的工具安装不再啰嗦，下面简述一下服务端代码的整个部署过程：  &lt;/p&gt;
+&lt;p&gt;1、开发童鞋提交最新代码&lt;br /&gt;
+2、QA合并代码到测试专用分支&lt;br /&gt;
+3、QA童鞋需要登录测试机并从测试分支上拉取代码到本地&lt;br /&gt;
+4、打包代码（war包）&lt;br /&gt;
+5、将War包Copy到Tomcat的webapps目录下&lt;br /&gt;
+6、重启Tomcat...可以在启动时查看其日志/logs/catalina.out  &lt;/p&gt;
+&lt;h4&gt;Shell脚本一键部署&lt;/h4&gt;
+&lt;p&gt;开发童鞋每一次提交，QA都需要重新部署一遍。一次两次没事，一天好几次你就能尝到那种头冒烟的感觉了。&lt;br /&gt;
+所以啊，该懒还得懒。这些重复性的劳动就交给机器去执行吧...&lt;br /&gt;
+挤出来的时间来杯Coffee还是可以的 哈哈  &lt;/p&gt;
+&lt;p&gt;开发每次提交代码后，只需执行一下脚本即可完成部署，是不是很省心呢~&lt;br /&gt;
+Shell就是这么 牛掰  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class="c1"&gt;#进入到工程目录&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; /data/testProject
+
+&lt;span class="c1"&gt;#切到qa分支&lt;/span&gt;
+git checkout qapri/test
+
+&lt;span class="c1"&gt;#从当前qa分支上拉取最新代码&lt;/span&gt;
+git pull
+
+&lt;span class="c1"&gt;#进入到工程目录&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; /data/testProject/
+
+&lt;span class="c1"&gt;#用mvn clean package命令清除之前的war包并重新打包。&lt;/span&gt;
+&lt;span class="c1"&gt;#-Dmaven.test.skip过滤测试用例。&lt;/span&gt;
+&lt;span class="c1"&gt;#-U从Mav仓库强制更新依赖包&lt;/span&gt;
+mvn clean package -Dmaven.test.skip -U
+
+&lt;span class="c1"&gt;#获取XX工程的进程号&lt;/span&gt;
+&lt;span class="nv"&gt;APIPROCESS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;ps -ef &lt;span class="p"&gt;|&lt;/span&gt; grep java &lt;span class="p"&gt;|&lt;/span&gt; grep tomcat_testProject/ &lt;span class="p"&gt;|&lt;/span&gt; awk &lt;span class="s1"&gt;&amp;#39;{print $2}&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+
+&lt;span class="c1"&gt;#输出进程号&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$APIPROCESS&lt;/span&gt;
+
+&lt;span class="c1"&gt;#判断进程号是否真实存在，不为空则Kill掉&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; -n &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$APIPROCESS&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;  &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+        &lt;span class="nb"&gt;kill&lt;/span&gt; -9 &lt;span class="nv"&gt;$APIPROCESS&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="c1"&gt;#删除当前项目tomcat webapps目录下的所有文件&lt;/span&gt;
+rm -rf /data/tomcat/tomcat_testProject/webapps/*
+
+&lt;span class="c1"&gt;#拷贝工程war包到tomcat中的web目录&lt;/span&gt;
+cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/webapps
+
+&lt;span class="c1"&gt;#进入到项目tomcat bin目录下&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; /data/tomcat/tomcat_testProject/bin/
+
+&lt;span class="c1"&gt;#启动tomcat,同时 实时查看启动日志&lt;/span&gt;
+sh /data/tomcat/tomcat_testProject/bin/startup.sh &lt;span class="p"&gt;;&lt;/span&gt;tailf ../logs/catalina.out
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="[shell]"></category></entry><entry><title>接口测试之基础篇</title><link href="https://xmenfolk.github.io/posts/intefacetestBase/" rel="alternate"></link><published>2016-04-20T00:00:00-03:00</published><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-04-20:posts/intefacetestBase/</id><summary type="html">&lt;h4&gt;接口测试简介&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;百度百科中为接口测试给出的定义：&lt;br /&gt;
 接口测试是测试系统组件间接口的一种测试。&lt;br /&gt;

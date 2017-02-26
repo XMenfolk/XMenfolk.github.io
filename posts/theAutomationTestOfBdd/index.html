@@ -136,9 +136,37 @@ These run before and after a section tagged with the given name. They are invoke
 </li>
 <li>
 <p>before_all(context), after_all(context)<br>
-These run before and after the whole shooting match.  </p>
+These run before and after the whole shooting match.</p>
+</li>
+<li>
+<p>此实践Demo的environment.py 的代码：</p>
 </li>
 </ul>
+<div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">import</span> <span class="nn">behave2cucumber</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># 在开始全部的测试之前执行</span>
+<span class="c1"># 此处为打开浏览器</span>
+<span class="k">def</span> <span class="nf">before_all</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">dr</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+
+<span class="c1"># 在所有的测试完成之后执行</span>
+<span class="c1"># 此处为关闭浏览器，并将behave 的json报告转化为 cucumber兼容的json报告，便于Jenkins集成展示</span>
+<span class="k">def</span> <span class="nf">after_all</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">dr</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;.\reports\jsonDumps\testResult.json&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">behave_json</span><span class="p">:</span>
+        <span class="n">cucumberJson</span> <span class="o">=</span> <span class="n">behave2cucumber</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">behave_json</span><span class="p">))</span>
+        <span class="n">jsonStr</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">cucumberJson</span><span class="p">)</span>
+
+    <span class="n">jsonReport</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.\reports\jsonReports\jsonReport.json&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">jsonReport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">jsonStr</span><span class="p">)</span>
+    <span class="n">jsonReport</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
 <h5>编写功能测试用例描述及测试数据</h5>
 <p>打开login.feature文件 写入如下内容：</p>
 <div class="highlight"><pre><span></span>功能: 登录
@@ -191,32 +219,6 @@ These run before and after the whole shooting match.  </p>
 3)Given：给出测试前提条件；  
 4)when：相当我们的测试步骤；  
 5)Then：给出期望结果。  
-</pre></div>
-
-
-<h5>编写环境配置的代码</h5>
-<div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
-<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">import</span> <span class="nn">behave2cucumber</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="c1"># 在开始全部的测试之前执行</span>
-<span class="c1"># 此处为打开浏览器</span>
-<span class="k">def</span> <span class="nf">before_all</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">dr</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
-
-<span class="c1"># 在所有的测试完成之后执行</span>
-<span class="c1"># 此处为关闭浏览器，并将behave 的json报告转化为 cucumber兼容的json报告，便于Jenkins集成展示</span>
-<span class="k">def</span> <span class="nf">after_all</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">dr</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="nb">file</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;.\reports\jsonDumps\testResult.json&#39;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">behave_json</span><span class="p">:</span>
-        <span class="n">cucumberJson</span> <span class="o">=</span> <span class="n">behave2cucumber</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">behave_json</span><span class="p">))</span>
-        <span class="n">jsonStr</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">cucumberJson</span><span class="p">)</span>
-
-    <span class="n">jsonReport</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.\reports\jsonReports\jsonReport.json&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
-    <span class="n">jsonReport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">jsonStr</span><span class="p">)</span>
-    <span class="n">jsonReport</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 
 
@@ -282,7 +284,7 @@ These run before and after the whole shooting match.  </p>
 2、源码管理、构建触发器、构建环境、构建等模块均默认不修改<br>
 3、在构建后操作 模块中，选择【增加构建后操作步骤】--Cucumber reports<br>
 4、打开Cucumber report 的高级选项，配置behave执行测试完成后，经转化后被cucumber所兼容的json报告所在路径  </p>
-<p>![01](/postsimage/behaveTest/behaveReportPath.png  <br>
+<p><img alt="01" src="/postsimage/behaveTest/behaveReportPath.png">  <br>
 5、保存job<br>
 6、打开job查看，会发现在页面中出现 cucumber reports 图标  ，说明配置成功<br>
 <img alt="02" src="/postsimage/behaveTest/reportIcon.png">   </p>

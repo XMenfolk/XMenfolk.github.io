@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Angie's Blog</title><link href="https://xmenfolk.github.io/" rel="alternate"></link><link href="https://xmenfolk.github.io/feeds/all.atom.xml" rel="self"></link><id>https://xmenfolk.github.io/</id><updated>2017-02-24T00:00:00-03:00</updated><entry><title>自动化测试之BDD</title><link href="https://xmenfolk.github.io/posts/theAutomationTestOfBdd/" rel="alternate"></link><published>2017-02-24T00:00:00-03:00</published><updated>2017-02-24T00:00:00-03:00</updated><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2017-02-24:/posts/theAutomationTestOfBdd/</id><summary type="html">&lt;h3&gt;什么是BDD&lt;/h3&gt;
-&lt;p&gt;BDD全称Behavior Driven Development，译作 行为驱动开发，是基于TDD (Test Driven Development 测试驱动开发)的软件开发过程和方法。&lt;/p&gt;
-&lt;p&gt;BDD可以让项目成员（甚至是不懂编程的）使用自然语言来描述系统功能和场景，从而根据这些描述步骤进行系统自动化的测试。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Angie's Blog</title><link href="https://xmenfolk.github.io/" rel="alternate"></link><link href="https://xmenfolk.github.io/feeds/all.atom.xml" rel="self"></link><id>https://xmenfolk.github.io/</id><updated>2017-02-26T00:00:00-03:00</updated><entry><title>自动化测试之BDD</title><link href="https://xmenfolk.github.io/posts/theAutomationTestOfBdd/" rel="alternate"></link><published>2017-02-26T00:00:00-03:00</published><updated>2017-02-26T00:00:00-03:00</updated><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2017-02-26:/posts/theAutomationTestOfBdd/</id><summary type="html">&lt;p&gt;很久没更博了，不记录点什么会觉得脑子空空的。&lt;br&gt;
+前些天在重构接口测试框架的时候，突发奇想的一个念头：就是要采用BDD方式来用作接口测试的数据驱动。于是花了一天时间简单学习了一下python的BDD框架-behave，并做了一个小实践。过程与结果，还算很满意。写此文章，向这些开源工具的贡献者们致敬！  &lt;/p&gt;
+&lt;h3&gt;什么是BDD&lt;/h3&gt;
+&lt;p&gt;BDD全称Behavior Driven Development，译作 行为驱动开发，是基于TDD (Test Driven Development 测试驱动开发)的软件开发过程和方法。  &lt;/p&gt;
+&lt;p&gt;BDD可以让项目成员（甚至是不懂编程的）使用自然语言来描述系统功能和场景，从而根据这些描述步骤进行系统自动化的测试。  &lt;/p&gt;
 &lt;h3&gt;常用BDD框架&lt;/h3&gt;
-&lt;p&gt;目前常用的BDD框架有：ruby的cucumber，python的behave、lettuce等&lt;/p&gt;
-&lt;p&gt;所实践项目 使用python开发自动化测试代码，故选用behave框架。总结从环境搭建 到运用 以及最后的测试报告集成到Jenkins上展示。&lt;/p&gt;
+&lt;p&gt;目前常用的BDD框架有：ruby的cucumber，python的behave、lettuce等。&lt;br&gt;
+所实践项目 使用python开发自动化测试代码，故选用behave框架。总结从环境搭建 到运用 以及最后的测试报告集成到Jenkins上展示。  &lt;/p&gt;
 &lt;h3&gt;Behave使用介绍&lt;/h3&gt;
 &lt;h4&gt;1、安装&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install behave ---首次安装  
@@ -22,12 +24,94 @@ pip install -U behave ---更新
 |       +-- steps/
 |       |     +-- login.py      -- Step definitions for features.
 |       +-- reports/            -- Save test reports
-|       |      +-- jsonDumps/   -- Save json reports
+|       |      +-- jsonDumps/   -- Save behave json reports
+|       |      +-- jsonReports/ -- Save behave to cucumber json reports
 |       +-- environment.py      -- Environment for global setup...
 |       +-- login.feature       -- Feature files.
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h6&gt;Behave 框架说明：&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;features/.feature文件用于编写测试场景，可以把各种场景和数据写在里面，支持中文；  &lt;/li&gt;
+&lt;li&gt;steps/.py文件就是根据所写的测试场景和数据来执行测试；  &lt;/li&gt;
+&lt;li&gt;features/.feature文件与steps/.py文件必须一一对应。  &lt;/li&gt;
+&lt;li&gt;features/.environment.py 用作测试环境统一配置。  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;environment.py 部分方法说明&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;before_step(context, step), after_step(context, step)&lt;br&gt;
+These run before and after every step.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;before_scenario(context, scenario), after_scenario(context, scenario)&lt;br&gt;
+These run before and after each scenario is run.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;before_feature(context, feature), after_feature(context, feature)&lt;br&gt;
+These run …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;很久没更博了，不记录点什么会觉得脑子空空的。&lt;br&gt;
+前些天在重构接口测试框架的时候，突发奇想的一个念头：就是要采用BDD方式来用作接口测试的数据驱动。于是花了一天时间简单学习了一下python的BDD框架-behave，并做了一个小实践。过程与结果，还算很满意。写此文章，向这些开源工具的贡献者们致敬！  &lt;/p&gt;
+&lt;h3&gt;什么是BDD&lt;/h3&gt;
+&lt;p&gt;BDD全称Behavior Driven Development，译作 行为驱动开发，是基于TDD (Test Driven Development 测试驱动开发)的软件开发过程和方法。  &lt;/p&gt;
+&lt;p&gt;BDD可以让项目成员（甚至是不懂编程的）使用自然语言来描述系统功能和场景，从而根据这些描述步骤进行系统自动化的测试。  &lt;/p&gt;
+&lt;h3&gt;常用BDD框架&lt;/h3&gt;
+&lt;p&gt;目前常用的BDD框架有：ruby的cucumber，python的behave、lettuce等。&lt;br&gt;
+所实践项目 使用python开发自动化测试代码，故选用behave框架。总结从环境搭建 到运用 以及最后的测试报告集成到Jenkins上展示。  &lt;/p&gt;
+&lt;h3&gt;Behave使用介绍&lt;/h3&gt;
+&lt;h4&gt;1、安装&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install behave ---首次安装  
+pip install -U behave ---更新
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;2、运行第一个测试&lt;/h4&gt;
+&lt;p&gt;测试的功能场景——测试网站的登录功能：&lt;br&gt;
+账号密码输入正确--登录成功；&lt;br&gt;
+账号密码输入错误--登录失败。&lt;/p&gt;
+&lt;h5&gt;建立框架结构&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$PROJECT/
++-- features/                   -- Contains all feature files.
+|       +-- steps/
+|       |     +-- login.py      -- Step definitions for features.
+|       +-- reports/            -- Save test reports
+|       |      +-- jsonDumps/   -- Save behave json reports
+|       |      +-- jsonReports/ -- Save behave to cucumber json reports
+|       +-- environment.py      -- Environment for global setup...
+|       +-- login.feature       -- Feature files.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h6&gt;Behave 框架说明：&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;features/.feature文件用于编写测试场景，可以把各种场景和数据写在里面，支持中文；  &lt;/li&gt;
+&lt;li&gt;steps/.py文件就是根据所写的测试场景和数据来执行测试；  &lt;/li&gt;
+&lt;li&gt;features/.feature文件与steps/.py文件必须一一对应。  &lt;/li&gt;
+&lt;li&gt;features/.environment.py 用作测试环境统一配置。  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;environment.py 部分方法说明&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;before_step(context, step), after_step(context, step)&lt;br&gt;
+These run before and after every step.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;before_scenario(context, scenario), after_scenario(context, scenario)&lt;br&gt;
+These run before and after each scenario is run.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;before_feature(context, feature), after_feature(context, feature)&lt;br&gt;
+These run before and after each feature file is exercised.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;before_tag(context, tag), after_tag(context, tag)&lt;br&gt;
+These run before and after a section tagged with the given name. They are invoked for each tag encountered in the order they’re found in the feature file. See controlling things with tags.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;before_all(context), after_all(context)&lt;br&gt;
+These run before and after the whole shooting match.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h5&gt;编写功能测试用例描述及测试数据&lt;/h5&gt;
 &lt;p&gt;打开login.feature文件 写入如下内容：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;功能: 登录
@@ -51,67 +135,35 @@ pip install -U behave ---更新
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h5&gt;编写环境配置的代码&lt;/h5&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# coding=utf-8&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;selenium&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;webdriver&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;behave2cucumber&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;h6&gt;feature文件编写说明：&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;一个feature文件中可以编写多个scenario  &lt;/li&gt;
+&lt;li&gt;以@开头的 如@LoginSuccess 为Tags 即标签，再执行测试时可直接指定tag来运行测试用例，命令为behave --tags=LoginSuccess    &lt;/li&gt;
+&lt;li&gt;feature文件英文编写格式如下：  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Feature&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;showing&lt;/span&gt; &lt;span class="n"&gt;off&lt;/span&gt; &lt;span class="n"&gt;behave&lt;/span&gt;
 
-&lt;span class="c1"&gt;# 在开始全部的测试之前执行&lt;/span&gt;
-&lt;span class="c1"&gt;# 此处为打开浏览器&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;before_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;webdriver&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Chrome&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  &lt;span class="n"&gt;Scenario&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;simple&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
+     &lt;span class="n"&gt;Given&lt;/span&gt; &lt;span class="n"&gt;we&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;behave&lt;/span&gt; &lt;span class="n"&gt;installed&lt;/span&gt;
+      &lt;span class="n"&gt;when&lt;/span&gt; &lt;span class="n"&gt;we&lt;/span&gt; &lt;span class="n"&gt;implement&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
+      &lt;span class="n"&gt;then&lt;/span&gt; &lt;span class="n"&gt;behave&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;us&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
 
-&lt;span class="c1"&gt;# 在所有的测试完成之后执行&lt;/span&gt;
-&lt;span class="c1"&gt;# 此处为关闭浏览器，并将behave …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h3&gt;什么是BDD&lt;/h3&gt;
-&lt;p&gt;BDD全称Behavior Driven Development，译作 行为驱动开发，是基于TDD (Test Driven Development 测试驱动开发)的软件开发过程和方法。&lt;/p&gt;
-&lt;p&gt;BDD可以让项目成员（甚至是不懂编程的）使用自然语言来描述系统功能和场景，从而根据这些描述步骤进行系统自动化的测试。&lt;/p&gt;
-&lt;h3&gt;常用BDD框架&lt;/h3&gt;
-&lt;p&gt;目前常用的BDD框架有：ruby的cucumber，python的behave、lettuce等&lt;/p&gt;
-&lt;p&gt;所实践项目 使用python开发自动化测试代码，故选用behave框架。总结从环境搭建 到运用 以及最后的测试报告集成到Jenkins上展示。&lt;/p&gt;
-&lt;h3&gt;Behave使用介绍&lt;/h3&gt;
-&lt;h4&gt;1、安装&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install behave ---首次安装  
-pip install -U behave ---更新
+  &lt;span class="n"&gt;Scenario&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;comparison&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt; &lt;span class="n"&gt;numbers&lt;/span&gt;
+
+     &lt;span class="n"&gt;Given&lt;/span&gt; &lt;span class="n"&gt;go&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;    
+      &lt;span class="n"&gt;When&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;admin&lt;/span&gt; &lt;span class="n"&gt;admin&lt;/span&gt;  
+      &lt;span class="n"&gt;Then&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="n"&gt;success&lt;/span&gt;   
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;2、运行第一个测试&lt;/h4&gt;
-&lt;p&gt;测试的功能场景——测试网站的登录功能：&lt;br&gt;
-账号密码输入正确--登录成功；&lt;br&gt;
-账号密码输入错误--登录失败。&lt;/p&gt;
-&lt;h5&gt;建立框架结构&lt;/h5&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$PROJECT/
-+-- features/                   -- Contains all feature files.
-|       +-- steps/
-|       |     +-- login.py      -- Step definitions for features.
-|       +-- reports/            -- Save test reports
-|       |      +-- jsonDumps/   -- Save json reports
-|       +-- environment.py      -- Environment for global setup...
-|       +-- login.feature       -- Feature files.
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h5&gt;编写功能测试用例描述及测试数据&lt;/h5&gt;
-&lt;p&gt;打开login.feature文件 写入如下内容：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;功能: 登录
-  @LoginSuccess
-  场景: 登录成功
-    假如 打开登录页面
-    当 输入用户名admin，密码admin登录
-    那么 跳转登录成功页面
-
-  @LoginFailure
-  场景大纲: 登录失败
-    假如 打开登录页面
-    当 用户名为&amp;lt;username&amp;gt;，密码为&amp;lt;password&amp;gt;时
-    那么 登录失败，提示&amp;lt;message&amp;gt;
-
-    例子: 登录失败测试用例
-    |username   | password    |  message  |
-    |admin       |incorrect     |错误：admin 的密码不正确。忘记密码了？|
-    |empty       |admin         |错误：用户名一栏为空。          |
-    |admin       |empty         |错误：密码一栏为空           |
+&lt;ul&gt;
+&lt;li&gt;feature 文件关键词说明：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;1)Feature:功能名称；  
+2)Scenario:测试场景名称；  
+3)Given：给出测试前提条件；  
+4)when：相当我们的测试步骤；  
+5)Then：给出期望结果。  
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -191,16 +243,6 @@ pip install -U behave ---更新
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;feature文件英文编写格式如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Feature&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;showing&lt;/span&gt; &lt;span class="n"&gt;off&lt;/span&gt; &lt;span class="n"&gt;behave&lt;/span&gt;
-
-  &lt;span class="n"&gt;Scenario&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;simple&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
-     &lt;span class="n"&gt;Given&lt;/span&gt; &lt;span class="n"&gt;we&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;behave&lt;/span&gt; &lt;span class="n"&gt;installed&lt;/span&gt;
-      &lt;span class="n"&gt;when&lt;/span&gt; &lt;span class="n"&gt;we&lt;/span&gt; &lt;span class="n"&gt;implement&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
-      &lt;span class="n"&gt;then&lt;/span&gt; &lt;span class="n"&gt;behave&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;us&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;p&gt;behave 其他执行命令参数 可查阅官方文档&lt;br&gt;
 &lt;a href="http://pythonhosted.org/behave/behave.html#command-line-arguments"&gt;http://pythonhosted.org/behave/behave.html#command-line-arguments&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Behave测试报告展示&lt;/h4&gt;
@@ -211,18 +253,29 @@ pip install -U behave ---更新
 &lt;p&gt;配置步骤：&lt;br&gt;
 1、打开Jenkins，新建一个任务，输入任务名称-BDDTest&lt;br&gt;
 2、源码管理、构建触发器、构建环境、构建等模块均默认不修改&lt;br&gt;
-3、在构建后操作 模块中，选择【增加构建后操作步骤】--Cucumber reports
+3、在构建后操作 模块中，选择【增加构建后操作步骤】--Cucumber reports&lt;br&gt;
 4、打开Cucumber report 的高级选项，配置behave执行测试完成后，经转化后被cucumber所兼容的json报告所在路径  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="01" src="/postsimage/behaveTest/behaveReportPath.png"&gt;  &lt;/p&gt;
-&lt;p&gt;5、保存job
+&lt;p&gt;![01](/postsimage/behaveTest/behaveReportPath.png  &lt;br&gt;
+5、保存job&lt;br&gt;
 6、打开job查看，会发现在页面中出现 cucumber reports 图标  ，说明配置成功&lt;br&gt;
 &lt;img alt="02" src="/postsimage/behaveTest/reportIcon.png"&gt;   &lt;/p&gt;
-&lt;p&gt;立即构建
+&lt;p&gt;立即构建&lt;br&gt;
 在Jenkins中打开任务，点击立即构建，等待构建成功结束&lt;br&gt;
-构建结束后，点击构建历史，查看测试报告&lt;br&gt;
+构建结束后，点击构建历史，查看测试报告  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;概览&lt;br&gt;
 &lt;img alt="03" src="/postsimage/behaveTest/featureReport.png"&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="04" src="/postsimage/behaveTest/tagsReport.png"&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="05" src="/postsimage/behaveTest/stepsReport.png"&gt;&lt;/p&gt;</content><category term="[BDD]"></category></entry><entry><title>用Shell部署测试环境</title><link href="https://xmenfolk.github.io/posts/theDeploymentEnvironment/" rel="alternate"></link><published>2016-05-04T00:00:00-03:00</published><updated>2016-05-04T00:00:00-03:00</updated><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-05-04:/posts/theDeploymentEnvironment/</id><summary type="html">&lt;h4&gt;测试环境介绍&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tags报告&lt;br&gt;
+&lt;img alt="04" src="/postsimage/behaveTest/tagsReport.png"&gt;  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;详细步骤执行情况&lt;br&gt;
+&lt;img alt="05" src="/postsimage/behaveTest/stepsReport.png"&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="[BDD]"></category></entry><entry><title>用Shell部署测试环境</title><link href="https://xmenfolk.github.io/posts/theDeploymentEnvironment/" rel="alternate"></link><published>2016-05-04T00:00:00-03:00</published><updated>2016-05-04T00:00:00-03:00</updated><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-05-04:/posts/theDeploymentEnvironment/</id><summary type="html">&lt;h4&gt;测试环境介绍&lt;/h4&gt;
 &lt;p&gt;Testing environment（测试环境）是指测试运行其上的软件和硬件环境的描述，以及任何其它与被测软件交互的软件，包括驱动和桩。&lt;br&gt;
 测试环境=软件+硬件+网络+数据准备+测试工具&lt;br&gt;
 以上为百科定义  &lt;/p&gt;

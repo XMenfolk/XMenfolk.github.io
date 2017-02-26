@@ -70,18 +70,20 @@
   <header>
     <h2><a href="https://xmenfolk.github.io/posts/theAutomationTestOfBdd/">自动化测试之BDD</a></h2>
     <p>
-      Posted on 周五 24 二月 2017 in <a href="https://xmenfolk.github.io/category/zi-dong-hua-ce-shi.html">[自动化测试]</a>
+      Posted on 周日 26 二月 2017 in <a href="https://xmenfolk.github.io/category/zi-dong-hua-ce-shi.html">[自动化测试]</a>
       &#8226; Tagged with
       <a href="https://xmenfolk.github.io/tag/bdd.html">[BDD]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/theAutomationTestOfBdd/#disqus_thread">Leave a comment</a>
     </p>
   </header>
   <div>
-      <h3>什么是BDD</h3>
-<p>BDD全称Behavior Driven Development，译作 行为驱动开发，是基于TDD (Test Driven Development 测试驱动开发)的软件开发过程和方法。</p>
-<p>BDD可以让项目成员（甚至是不懂编程的）使用自然语言来描述系统功能和场景，从而根据这些描述步骤进行系统自动化的测试。</p>
+      <p>很久没更博了，不记录点什么会觉得脑子空空的。<br>
+前些天在重构接口测试框架的时候，突发奇想的一个念头：就是要采用BDD方式来用作接口测试的数据驱动。于是花了一天时间简单学习了一下python的BDD框架-behave，并做了一个小实践。过程与结果，还算很满意。写此文章，向这些开源工具的贡献者们致敬！  </p>
+<h3>什么是BDD</h3>
+<p>BDD全称Behavior Driven Development，译作 行为驱动开发，是基于TDD (Test Driven Development 测试驱动开发)的软件开发过程和方法。  </p>
+<p>BDD可以让项目成员（甚至是不懂编程的）使用自然语言来描述系统功能和场景，从而根据这些描述步骤进行系统自动化的测试。  </p>
 <h3>常用BDD框架</h3>
-<p>目前常用的BDD框架有：ruby的cucumber，python的behave、lettuce等</p>
-<p>所实践项目 使用python开发自动化测试代码，故选用behave框架。总结从环境搭建 到运用 以及最后的测试报告集成到Jenkins上展示。</p>
+<p>目前常用的BDD框架有：ruby的cucumber，python的behave、lettuce等。<br>
+所实践项目 使用python开发自动化测试代码，故选用behave框架。总结从环境搭建 到运用 以及最后的测试报告集成到Jenkins上展示。  </p>
 <h3>Behave使用介绍</h3>
 <h4>1、安装</h4>
 <div class="highlight"><pre><span></span>pip install behave ---首次安装  
@@ -99,48 +101,33 @@ pip install -U behave ---更新
 |       +-- steps/
 |       |     +-- login.py      -- Step definitions for features.
 |       +-- reports/            -- Save test reports
-|       |      +-- jsonDumps/   -- Save json reports
+|       |      +-- jsonDumps/   -- Save behave json reports
+|       |      +-- jsonReports/ -- Save behave to cucumber json reports
 |       +-- environment.py      -- Environment for global setup...
 |       +-- login.feature       -- Feature files.
 </pre></div>
 
 
-<h5>编写功能测试用例描述及测试数据</h5>
-<p>打开login.feature文件 写入如下内容：</p>
-<div class="highlight"><pre><span></span>功能: 登录
-  @LoginSuccess
-  场景: 登录成功
-    假如 打开登录页面
-    当 输入用户名admin，密码admin登录
-    那么 跳转登录成功页面
-
-  @LoginFailure
-  场景大纲: 登录失败
-    假如 打开登录页面
-    当 用户名为&lt;username&gt;，密码为&lt;password&gt;时
-    那么 登录失败，提示&lt;message&gt;
-
-    例子: 登录失败测试用例
-    |username   | password    |  message  |
-    |admin       |incorrect     |错误：admin 的密码不正确。忘记密码了？|
-    |empty       |admin         |错误：用户名一栏为空。          |
-    |admin       |empty         |错误：密码一栏为空           |
-</pre></div>
-
-
-<h5>编写环境配置的代码</h5>
-<div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
-<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">import</span> <span class="nn">behave2cucumber</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="c1"># 在开始全部的测试之前执行</span>
-<span class="c1"># 此处为打开浏览器</span>
-<span class="k">def</span> <span class="nf">before_all</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">dr</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
-
-<span class="c1"># 在所有的测试完成之后执行</span>
-<span class="c1"># 此处为关闭浏览器，并将behave …</span></pre></div>
+<h6>Behave 框架说明：</h6>
+<ul>
+<li>features/.feature文件用于编写测试场景，可以把各种场景和数据写在里面，支持中文；  </li>
+<li>steps/.py文件就是根据所写的测试场景和数据来执行测试；  </li>
+<li>features/.feature文件与steps/.py文件必须一一对应。  </li>
+<li>features/.environment.py 用作测试环境统一配置。  </li>
+</ul>
+<h5>environment.py 部分方法说明</h5>
+<ul>
+<li>
+<p>before_step(context, step), after_step(context, step)<br>
+These run before and after every step.  </p>
+</li>
+<li>
+<p>before_scenario(context, scenario), after_scenario(context, scenario)<br>
+These run before and after each scenario is run.  </p>
+</li>
+<li>
+<p>before_feature(context, feature), after_feature(context, feature)<br>
+These run …</p></li></ul>
       <a class="btn" href="https://xmenfolk.github.io/posts/theAutomationTestOfBdd/#theAutomationTestOfBdd">Continue reading</a>
   </div>
 </article>

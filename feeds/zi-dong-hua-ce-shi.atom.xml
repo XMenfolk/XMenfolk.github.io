@@ -212,14 +212,14 @@ pip install -U behave ---更新
 1、打开Jenkins，新建一个任务，输入任务名称-BDDTest&lt;br&gt;
 2、源码管理、构建触发器、构建环境、构建等模块均默认不修改&lt;br&gt;
 3、在构建后操作 模块中，选择【增加构建后操作步骤】--Cucumber reports
-4、打开Cucumber report 的高级选项，配置behave执行测试完成后，经转化后被cucumber所兼容的json报告所在路径&lt;br&gt;
-&lt;img alt="01" src="/postsimage/behaveTest/behaveReportPath.png"&gt;&lt;br&gt;
-5、保存job
+4、打开Cucumber report 的高级选项，配置behave执行测试完成后，经转化后被cucumber所兼容的json报告所在路径  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="01" src="/postsimage/behaveTest/behaveReportPath.png"&gt;  &lt;/p&gt;
+&lt;p&gt;5、保存job
 6、打开job查看，会发现在页面中出现 cucumber reports 图标  ，说明配置成功&lt;br&gt;
 &lt;img alt="02" src="/postsimage/behaveTest/reportIcon.png"&gt;   &lt;/p&gt;
 &lt;p&gt;立即构建
 在Jenkins中打开任务，点击立即构建，等待构建成功结束&lt;br&gt;
 构建结束后，点击构建历史，查看测试报告&lt;br&gt;
-&lt;img alt="03" src="/postsimage/behaveTest/featureReport.png"&gt;&lt;br&gt;
-&lt;img alt="04" src="/postsimage/behaveTest/tagsReport.png"&gt;&lt;br&gt;
-&lt;img alt="05" src="/postsimage/behaveTest/stepsReport.png"&gt;&lt;/p&gt;</content><category term="[BDD]"></category></entry></feed>
+&lt;img alt="03" src="/postsimage/behaveTest/featureReport.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="04" src="/postsimage/behaveTest/tagsReport.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="05" src="/postsimage/behaveTest/stepsReport.png"&gt;&lt;/p&gt;</content><category term="[BDD]"></category></entry></feed>

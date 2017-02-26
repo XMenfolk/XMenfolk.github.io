@@ -14,8 +14,8 @@ pip install -U behave ---更新
 
 &lt;h5&gt;2、运行第一个测试&lt;/h5&gt;
 &lt;p&gt;测试的功能场景——测试网站的登录功能：&lt;br&gt;
-    账号密码输入正确--登录成功；&lt;br&gt;
-    账号密码输入错误，登录失败&lt;/p&gt;
+账号密码输入正确--登录成功；&lt;br&gt;
+账号密码输入错误--登录失败。&lt;/p&gt;
 &lt;h6&gt;建立框架结构&lt;/h6&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$PROJECT/
 +-- features/                   -- Contains all feature files.
@@ -63,7 +63,7 @@ pip install -U behave ---更新
     &lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;webdriver&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Chrome&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
 &lt;span class="c1"&gt;# 在所有的测试完成之后执行&lt;/span&gt;
-&lt;span class="c1"&gt;# 此处为关闭浏览器 …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h4&gt;什么是BDD&lt;/h4&gt;
+&lt;span class="c1"&gt;# 此处为关闭浏览器，并将behave …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h4&gt;什么是BDD&lt;/h4&gt;
 &lt;p&gt;BDD全称Behavior Driven Development，译作"行为驱动开发"，是基于TDD (Test Driven Development 测试驱动开发)的软件开发过程和方法。&lt;/p&gt;
 &lt;p&gt;BDD可以让项目成员（甚至是不懂编程的）使用自然语言来描述系统功能和场景，从而根据这些描述步骤进行系统自动化的测试。&lt;/p&gt;
 &lt;h4&gt;常用BDD框架&lt;/h4&gt;
@@ -78,8 +78,8 @@ pip install -U behave ---更新
 
 &lt;h5&gt;2、运行第一个测试&lt;/h5&gt;
 &lt;p&gt;测试的功能场景——测试网站的登录功能：&lt;br&gt;
-    账号密码输入正确--登录成功；&lt;br&gt;
-    账号密码输入错误，登录失败&lt;/p&gt;
+账号密码输入正确--登录成功；&lt;br&gt;
+账号密码输入错误--登录失败。&lt;/p&gt;
 &lt;h6&gt;建立框架结构&lt;/h6&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$PROJECT/
 +-- features/                   -- Contains all feature files.

@@ -473,15 +473,15 @@ Moco 能帮助解决开发中的哪些问题？作者的回答如下：    &lt;/
 &lt;ul&gt;
 &lt;li&gt;测试获取书籍列表：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="01" src="/postsimage/mocktest/01"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="01" src="/postsimage/mocktest/01.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;获取 Java 核心编程的信息：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="02" src="/postsimage/mocktest/02"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="02" src="/postsimage/mocktest/02.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;获取 Jack 的信息：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="03" src="/postsimage/mocktest/03"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="03" src="/postsimage/mocktest/03.png"&gt;&lt;/p&gt;
 &lt;h4&gt;其它配置方法&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;通过配置不同的 json 文件，使得接口请求方式、返回的数据满足接口文档，这样就可以在完成接口用例的同时进行调试用例、用例完成后可以立即对接口进行测试。另外前端开发人员也可以使用这些模拟数据进行调试，这样就让测试人员、前端开发人员不用依赖于接口开发人员对接口的开发。&lt;/li&gt;

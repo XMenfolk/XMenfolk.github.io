@@ -68,6 +68,85 @@
 
 <article>
   <header>
+    <h2><a href="https://xmenfolk.github.io/posts/theAutomationTestOfBdd/">自动化测试之BDD</a></h2>
+    <p>
+      Posted on 周五 24 二月 2017 in <a href="https://xmenfolk.github.io/category/zi-dong-hua-ce-shi.html">[自动化测试]</a>
+      &#8226; Tagged with
+      <a href="https://xmenfolk.github.io/tag/bdd.html">[BDD]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/theAutomationTestOfBdd/#disqus_thread">Leave a comment</a>
+    </p>
+  </header>
+  <div>
+      <h4>什么是BDD</h4>
+<p>BDD全称Behavior Driven Development，译作"行为驱动开发"，是基于TDD (Test Driven Development 测试驱动开发)的软件开发过程和方法。</p>
+<p>BDD可以让项目成员（甚至是不懂编程的）使用自然语言来描述系统功能和场景，从而根据这些描述步骤进行系统自动化的测试。</p>
+<h4>常用BDD框架</h4>
+<p>目前常用的BDD框架有：ruby的cucumber，python的behave、lettuce等</p>
+<p>所实践项目 使用python开发自动化测试代码，故选用behave框架。总结从环境搭建 到运用 以及最后的测试报告集成到Jenkins上展示。</p>
+<h4>Behave使用介绍</h4>
+<h5>1、安装</h5>
+<div class="highlight"><pre><span></span>pip install behave ---首次安装  
+pip install -U behave ---更新
+</pre></div>
+
+
+<h5>2、运行第一个测试</h5>
+<p>测试的功能场景——测试网站的登录功能：<br>
+    账号密码输入正确--登录成功；<br>
+    账号密码输入错误，登录失败</p>
+<h6>建立框架结构</h6>
+<div class="highlight"><pre><span></span>$PROJECT/
++-- features/                   -- Contains all feature files.
+|       +-- steps/
+|       |     +-- login.py      -- Step definitions for features.
+|       +-- reports/            -- Save test reports
+|       |      +-- jsonDumps/   -- Save json reports
+|       +-- environment.py      -- Environment for global setup...
+|       +-- login.feature       -- Feature files.
+</pre></div>
+
+
+<h6>编写功能测试用例描述及测试数据</h6>
+<p>打开login.feature文件 写入如下内容：</p>
+<div class="highlight"><pre><span></span>功能: 登录
+  @LoginSuccess
+  场景: 登录成功
+    假如 打开登录页面
+    当 输入用户名admin，密码admin登录
+    那么 跳转登录成功页面
+
+  @LoginFailure
+  场景大纲: 登录失败
+    假如 打开登录页面
+    当 用户名为&lt;username&gt;，密码为&lt;password&gt;时
+    那么 登录失败，提示&lt;message&gt;
+
+    例子: 登录失败测试用例
+    |username   | password    |  message  |
+    |admin       |incorrect     |错误：admin 的密码不正确。忘记密码了？|
+    |empty       |admin         |错误：用户名一栏为空。          |
+    |admin       |empty         |错误：密码一栏为空           |
+</pre></div>
+
+
+<h6>编写环境配置的代码</h6>
+<div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">import</span> <span class="nn">behave2cucumber</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># 在开始全部的测试之前执行</span>
+<span class="c1"># 此处为打开浏览器</span>
+<span class="k">def</span> <span class="nf">before_all</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">dr</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+
+<span class="c1"># 在所有的测试完成之后执行</span>
+<span class="c1"># 此处为关闭浏览器 …</span></pre></div>
+      <a class="btn" href="https://xmenfolk.github.io/posts/theAutomationTestOfBdd/#theAutomationTestOfBdd">Continue reading</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://xmenfolk.github.io/posts/theDeploymentEnvironment/">用Shell部署测试环境</a></h2>
     <p>
       Posted on 周三 04 五月 2016 in <a href="https://xmenfolk.github.io/category/huan-jing-da-jian.html">[环境搭建]</a>
@@ -77,30 +156,30 @@
   </header>
   <div>
       <h4>测试环境介绍</h4>
-<p>Testing environment（测试环境）是指测试运行其上的软件和硬件环境的描述，以及任何其它与被测软件交互的软件，包括驱动和桩。<br />
-测试环境=软件+硬件+网络+数据准备+测试工具<br />
+<p>Testing environment（测试环境）是指测试运行其上的软件和硬件环境的描述，以及任何其它与被测软件交互的软件，包括驱动和桩。<br>
+测试环境=软件+硬件+网络+数据准备+测试工具<br>
 以上为百科定义  </p>
-<p>说的通俗一点，测试环境就是为了测试一个系统而应该具备的所有初始条件.<br />
+<p>说的通俗一点，测试环境就是为了测试一个系统而应该具备的所有初始条件.<br>
 比如说---喝水，必须有：喝水的东西（软硬件）、水（数据）...  </p>
 <h4>项目环境举例</h4>
-<p>服务端开发语言：Java<br />
-Web应用服务器：Tomcat<br />
-项目构建工具：Maven<br />
-数据库：Mysql<br />
-版本控制：Git<br />
-...<br />
+<p>服务端开发语言：Java<br>
+Web应用服务器：Tomcat<br>
+项目构建工具：Maven<br>
+数据库：Mysql<br>
+版本控制：Git<br>
+...<br>
 如上环境所需的工具安装不再啰嗦，下面简述一下服务端代码的整个部署过程：  </p>
-<p>1、开发童鞋提交最新代码<br />
-2、QA合并代码到测试专用分支<br />
-3、QA童鞋需要登录测试机并从测试分支上拉取代码到本地<br />
-4、打包代码（war包）<br />
-5、将War包Copy到Tomcat的webapps目录下<br />
+<p>1、开发童鞋提交最新代码<br>
+2、QA合并代码到测试专用分支<br>
+3、QA童鞋需要登录测试机并从测试分支上拉取代码到本地<br>
+4、打包代码（war包）<br>
+5、将War包Copy到Tomcat的webapps目录下<br>
 6、重启Tomcat...可以在启动时查看其日志/logs/catalina.out  </p>
 <h4>Shell脚本一键部署</h4>
-<p>开发童鞋每一次提交，QA都需要重新部署一遍。一次两次没事，一天好几次你就能尝到那种头冒烟的感觉了。<br />
-所以啊，该懒还得懒。这些重复性的劳动就交给机器去执行吧...<br />
+<p>开发童鞋每一次提交，QA都需要重新部署一遍。一次两次没事，一天好几次你就能尝到那种头冒烟的感觉了。<br>
+所以啊，该懒还得懒。这些重复性的劳动就交给机器去执行吧...<br>
 挤出来的时间来杯Coffee还是可以的 哈哈  </p>
-<p>开发每次提交代码后，只需执行一下脚本即可完成部署，是不是很省心呢~<br />
+<p>开发每次提交代码后，只需执行一下脚本即可完成部署，是不是很省心呢~<br>
 Shell就是这么 牛掰  </p>
 <div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 
@@ -139,7 +218,7 @@ rm -rf /data/tomcat/tomcat_testProject/webapps/*
 cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/webapps
 
 <span class="c1">#进入到项目tomcat bin目录下</span>
-<span class="nb">cd</span> /data/tomcat/tomcat_testProject/bin ...</pre></div>
+<span class="nb">cd</span> /data/tomcat/tomcat_testProject/bin …</pre></div>
       <a class="btn" href="https://xmenfolk.github.io/posts/theDeploymentEnvironment/#theDeploymentEnvironment">Continue reading</a>
   </div>
   <hr />
@@ -156,17 +235,17 @@ cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/w
   <div>
       <h4>接口测试简介</h4>
 <ul>
-<li>百度百科中为接口测试给出的定义：<br />
-接口测试是测试系统组件间接口的一种测试。<br />
-接口测试主要用于检测外部系统与系统之间以及内部各个子系统之间的交互点。<br />
+<li>百度百科中为接口测试给出的定义：<br>
+接口测试是测试系统组件间接口的一种测试。<br>
+接口测试主要用于检测外部系统与系统之间以及内部各个子系统之间的交互点。<br>
 测试的重点是要检查数据的交换，传递和控制管理过程，以及系统间的相互逻辑依赖关系等。  </li>
-<li>接口测试通常包括两类，模块之间的接口测试和 Web 接口测试。<br />
-前者通常是由开发人员在单元测试中进行测试，后者则通常由测试人员进行测试。<br />
+<li>接口测试通常包括两类，模块之间的接口测试和 Web 接口测试。<br>
+前者通常是由开发人员在单元测试中进行测试，后者则通常由测试人员进行测试。<br>
 后面的内容主要为 Web 接口测试。</li>
 </ul>
 <h4>接口测试的意义</h4>
-<p>测试人员都知道，在整个软件生命周期中，测试介入的越早，成本越低，收益越好。<br />
-通常，前端的实现，依赖于后端的接口，测试人员需要在开发人员输出接口文档后，就立即开始设计接口测试用例，在开发人员将接口开发完成后，就可以进行接口测试了。<br />
+<p>测试人员都知道，在整个软件生命周期中，测试介入的越早，成本越低，收益越好。<br>
+通常，前端的实现，依赖于后端的接口，测试人员需要在开发人员输出接口文档后，就立即开始设计接口测试用例，在开发人员将接口开发完成后，就可以进行接口测试了。<br>
 接口测试，可以提前暴露很多问题，此时开发解决问题，相对在前端的功能测试中发现的问题，其代价要小的多。接口的正确和稳定，会为后面前端的功能测试减少很大一部分工作量。另外接口的自动化、持续集成也相对的比较容易去实现。</p>
 <h4>接口测试的内容</h4>
 <ul>
@@ -216,10 +295,10 @@ cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/w
   </header>
   <div>
       <h4>一、测试需求描述</h4>
-<p>1、 本次测试的接口为http服务端接口<br />
-  2、 接口的主要分成两类，一类提供给查询功能接口，一类提供保存数据功能接口，这里我们举例2个保存数据的接口，因为这两个接口有关联性，比较有代表性；<br />
+<p>1、 本次测试的接口为http服务端接口<br>
+  2、 接口的主要分成两类，一类提供给查询功能接口，一类提供保存数据功能接口，这里我们举例2个保存数据的接口，因为这两个接口有关联性，比较有代表性；<br>
   3、接口描述：  </p>
-<p>保存信用卡账户信息接口：<br />
+<p>保存信用卡账户信息接口：<br>
 传入参数：</p>
 <div class="highlight"><pre><span></span><span class="err">args=</span><span class="p">{</span>
    <span class="nt">&quot;clientNo&quot;</span><span class="p">:</span><span class="s2">&quot;434343556&quot;</span><span class="p">,</span>
@@ -230,7 +309,7 @@ cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/w
 </pre></div>
 
 
-<p>传出参数：<br />
+<p>传出参数：<br>
 1)保存成功：</p>
 <div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;returnMsg&quot;</span><span class="p">:</span><span class="s2">&quot;保存成功&quot;</span><span class="p">}</span>
 </pre></div>
@@ -256,7 +335,7 @@ cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/w
 </pre></div>
 
 
-<p>传出参数：<br />
+<p>传出参数：<br>
 1)保存成功：</p>
 <div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;returnMsg&quot;</span><span class="p">:</span><span class="s2">&quot;保存成功&quot;</span><span class="p">}</span>
 </pre></div>
@@ -270,34 +349,34 @@ cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/w
 <p>保存逻辑：保存时先去信用卡信息表查看clientNo对应的表是否存在，如存在则数据校验通过，将数据保存进入信用卡账单表</p>
 <p>注：这个保存逻辑在接口开发设计文档中可能没有写或写的不详细，这时要与开发接口人员或产品人员多多沟通去熟悉接口逻辑</p>
 <h4>二、测试分析</h4>
-<p>1、逻辑分析<br />
-      1)、从保存逻辑上来看，这两个接口明显是有依赖关系的，所以我们先测试信用卡账户信息接口，再测试保存信用卡账单接口<br />
-      2)、接口传入的数据，最终是保存到数据库中，所以当接口返回保存成功的时候，我们也要去对应的数据库表中核对相应的数据(这里可以用jmeter链接数据库进行操作代理手工)<br />
+<p>1、逻辑分析<br>
+      1)、从保存逻辑上来看，这两个接口明显是有依赖关系的，所以我们先测试信用卡账户信息接口，再测试保存信用卡账单接口<br>
+      2)、接口传入的数据，最终是保存到数据库中，所以当接口返回保存成功的时候，我们也要去对应的数据库表中核对相应的数据(这里可以用jmeter链接数据库进行操作代理手工)<br>
       3)、当出现保存失败的情况时，我们需要查看系统的日志，所以我们也要准备好查看日志的权限和地址  </p>
-<p>2、测试工具的准备<br />
-      1)、单个接口测试，使用poster/postman<br />
+<p>2、测试工具的准备<br>
+      1)、单个接口测试，使用poster/postman<br>
       2)、多个接口测试，我们使用Jmeter进行测试  </p>
 <h4>三、使用工具测试</h4>
 <p>本实例中使用Jmeter对接口进行测试  </p>
 <p>首先我们说一下为什么用Poster测试后我们还要用Jmeter做接口测试，在用poster测试时候会发现的是一个接口一个接口的测试，我们每次测试成功后的数据，在工具中是无法保存的，再次测试的时候我们还要重新输入测试的数据，当我们测试一个接口的时候可能感觉不明显，但是当你测试几十个接口的时候，你就会发现使用Jmeter的好处，如果按测试阶段来说冒烟测试我们用poster，集成测试我们用Jmeter  </p>
 <h4>四、使用Jmeter接口测试</h4>
-<p>1、首先邮件添加一个线程组，这里我们重命名InterfaceTest<br />
-<img alt="01" src="/postsimage/post01/01.png" /></p>
-<p><img alt="02" src="/postsimage/post01/02.png" /></p>
+<p>1、首先邮件添加一个线程组，这里我们重命名InterfaceTest<br>
+<img alt="01" src="/postsimage/post01/01.png"></p>
+<p><img alt="02" src="/postsimage/post01/02.png"></p>
 <p>2、在线程组上添加一个Http默认请求，并配置服务器的IP地址和传输编码  </p>
-<p><img alt="03" src="/postsimage/post01/03.png" /></p>
-<p><img alt="04" src="/postsimage/post01/04.png" /></p>
+<p><img alt="03" src="/postsimage/post01/03.png"></p>
+<p><img alt="04" src="/postsimage/post01/04.png"></p>
 <p>3、在线程组中添加一个HTTP请求，这里我们重命名“增加信用卡账户信息接口”</p>
-<p><img alt="05" src="/postsimage/post01/05.png" /></p>
-<p><img alt="06" src="/postsimage/post01/06.png" /></p>
+<p><img alt="05" src="/postsimage/post01/05.png"></p>
+<p><img alt="06" src="/postsimage/post01/06.png"></p>
 <p>4、配置接口请求信息，这配置示例如下：</p>
-<p><img alt="07" src="/postsimage/post01/07.png" /></p>
+<p><img alt="07" src="/postsimage/post01/07.png"></p>
 <p>5、在保存信用卡账单接口请求，示例如下：</p>
-<p><img alt="08" src="/postsimage/post01/08.png" /></p>
+<p><img alt="08" src="/postsimage/post01/08.png"></p>
 <p>注：由于Jmeter请求线程组内的请求时从第一个开始执行，所以我们将需要最先执行的请求放在前面</p>
 <p>6、在线程组上添加监听器，察看结果树和聚合报告</p>
-<p><img alt="09" src="/postsimage/post01/09.png" /></p>
-<p>7、点击启动 ...</p>
+<p><img alt="09" src="/postsimage/post01/09.png"></p>
+<p>7、点击启动 …</p>
       <a class="btn" href="https://xmenfolk.github.io/posts/intefacetestExample/#intefacetestExample">Continue reading</a>
   </div>
   <hr />
@@ -313,8 +392,8 @@ cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/w
   </header>
   <div>
       <h4>Moco 简介</h4>
-<p>Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。<br />
-简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。<br />
+<p>Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。<br>
+简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。<br>
 Moco 能帮助解决开发中的哪些问题？作者的回答如下：    </p>
 <p>Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。</p>
 <h4>Moco 用于接口测试</h4>
@@ -353,66 +432,8 @@ Moco 能帮助解决开发中的哪些问题？作者的回答如下：    </p>
 <ul>
 <li>在浏览器中访问 http://localhost:12306， 将会在页面上显示 Hello,Moco</li>
 </ul>
-<p>配置 ...</p>
+<p>配置 …</p>
       <a class="btn" href="https://xmenfolk.github.io/posts/intefacetestMock/#intefacetestMock">Continue reading</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/">测试Jenkins构建及禁用Job接口</a></h2>
-    <p>
-      Posted on 周三 13 四月 2016 in <a href="https://xmenfolk.github.io/category/jie-kou-ce-shi.html">[接口测试]</a>
-      &#8226; Tagged with
-      <a href="https://xmenfolk.github.io/tag/python.html">[Python</a>,      <a href="https://xmenfolk.github.io/tag/jie-kou-ce-shi.html">接口测试]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/#disqus_thread">Leave a comment</a>
-    </p>
-  </header>
-  <div>
-      <p>使用python unittest+requests对Jenkins构建及禁用job接口进行测试:</p>
-<div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
-
-<span class="kn">import</span> <span class="nn">unittest</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">HTTPBasicAuth</span>
-
-
-<span class="k">class</span> <span class="nc">JenkinsPostTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># 构建job的url</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">build_job_url</span> <span class="o">=</span> <span class="s1">&#39;http://192.168.217.130:8080/jenkins/job/check_python_version/build&#39;</span>
-        <span class="c1"># 禁用job的url</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">disable_job_url</span> <span class="o">=</span> <span class="s1">&#39;http://192.168.217.130:8080/jenkins/job/check_python_version/disable&#39;</span>
-        <span class="c1"># 获取job状态等信息的rul</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">job_url</span> <span class="o">=</span> <span class="s1">&#39;http://192.168.217.130:8080/jenkins/job/check_python_version/api/json&#39;</span>
-
-    <span class="c1"># 测试构建某一job接口</span>
-    <span class="k">def</span> <span class="nf">test_buildJob</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">build_job_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span>
-        <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
-
-    <span class="c1"># 测试禁用某一job接口</span>
-    <span class="k">def</span> <span class="nf">test_disableJob</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># 确认job状态是否可执行，&#39;buildable&#39;:&#39;true&#39;</span>
-        <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_JobInfo</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
-
-        <span class="c1"># 禁用job，断言禁用job是否成功</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">disable_job_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-
-        <span class="c1"># 获取当前job状态</span>
-        <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_JobInfo</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
-        <span class="k">print</span> <span class="n">status</span>
-
-    <span class="c1"># 获取当前job信息</span>
-    <span class="k">def</span> <span class="nf">get_JobInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">job_info</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">job_url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">job_info</span><span class="p">[</span><span class="s1">&#39;buildable&#39;</span><span class="p">]</span>
-</pre></div>
-      <a class="btn" href="https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/#JenkinsBuildJobApiTest">Continue reading</a>
   </div>
 </article>
 

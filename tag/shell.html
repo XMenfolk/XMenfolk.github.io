@@ -77,30 +77,30 @@
   </header>
   <div>
       <h4>测试环境介绍</h4>
-<p>Testing environment（测试环境）是指测试运行其上的软件和硬件环境的描述，以及任何其它与被测软件交互的软件，包括驱动和桩。<br />
-测试环境=软件+硬件+网络+数据准备+测试工具<br />
+<p>Testing environment（测试环境）是指测试运行其上的软件和硬件环境的描述，以及任何其它与被测软件交互的软件，包括驱动和桩。<br>
+测试环境=软件+硬件+网络+数据准备+测试工具<br>
 以上为百科定义  </p>
-<p>说的通俗一点，测试环境就是为了测试一个系统而应该具备的所有初始条件.<br />
+<p>说的通俗一点，测试环境就是为了测试一个系统而应该具备的所有初始条件.<br>
 比如说---喝水，必须有：喝水的东西（软硬件）、水（数据）...  </p>
 <h4>项目环境举例</h4>
-<p>服务端开发语言：Java<br />
-Web应用服务器：Tomcat<br />
-项目构建工具：Maven<br />
-数据库：Mysql<br />
-版本控制：Git<br />
-...<br />
+<p>服务端开发语言：Java<br>
+Web应用服务器：Tomcat<br>
+项目构建工具：Maven<br>
+数据库：Mysql<br>
+版本控制：Git<br>
+...<br>
 如上环境所需的工具安装不再啰嗦，下面简述一下服务端代码的整个部署过程：  </p>
-<p>1、开发童鞋提交最新代码<br />
-2、QA合并代码到测试专用分支<br />
-3、QA童鞋需要登录测试机并从测试分支上拉取代码到本地<br />
-4、打包代码（war包）<br />
-5、将War包Copy到Tomcat的webapps目录下<br />
+<p>1、开发童鞋提交最新代码<br>
+2、QA合并代码到测试专用分支<br>
+3、QA童鞋需要登录测试机并从测试分支上拉取代码到本地<br>
+4、打包代码（war包）<br>
+5、将War包Copy到Tomcat的webapps目录下<br>
 6、重启Tomcat...可以在启动时查看其日志/logs/catalina.out  </p>
 <h4>Shell脚本一键部署</h4>
-<p>开发童鞋每一次提交，QA都需要重新部署一遍。一次两次没事，一天好几次你就能尝到那种头冒烟的感觉了。<br />
-所以啊，该懒还得懒。这些重复性的劳动就交给机器去执行吧...<br />
+<p>开发童鞋每一次提交，QA都需要重新部署一遍。一次两次没事，一天好几次你就能尝到那种头冒烟的感觉了。<br>
+所以啊，该懒还得懒。这些重复性的劳动就交给机器去执行吧...<br>
 挤出来的时间来杯Coffee还是可以的 哈哈  </p>
-<p>开发每次提交代码后，只需执行一下脚本即可完成部署，是不是很省心呢~<br />
+<p>开发每次提交代码后，只需执行一下脚本即可完成部署，是不是很省心呢~<br>
 Shell就是这么 牛掰  </p>
 <div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 
@@ -139,7 +139,7 @@ rm -rf /data/tomcat/tomcat_testProject/webapps/*
 cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/webapps
 
 <span class="c1">#进入到项目tomcat bin目录下</span>
-<span class="nb">cd</span> /data/tomcat/tomcat_testProject/bin ...</pre></div>
+<span class="nb">cd</span> /data/tomcat/tomcat_testProject/bin …</pre></div>
       <a class="btn" href="https://xmenfolk.github.io/posts/theDeploymentEnvironment/#theDeploymentEnvironment">Continue reading</a>
   </div>
 </article>

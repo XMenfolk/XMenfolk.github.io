@@ -68,6 +68,64 @@
 
 <article>
   <header>
+    <h2><a href="https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/">测试Jenkins构建及禁用Job接口</a></h2>
+    <p>
+      Posted on 周三 13 四月 2016 in <a href="https://xmenfolk.github.io/category/jie-kou-ce-shi.html">[接口测试]</a>
+      &#8226; Tagged with
+      <a href="https://xmenfolk.github.io/tag/python.html">[Python</a>,      <a href="https://xmenfolk.github.io/tag/jie-kou-ce-shi.html">接口测试]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/#disqus_thread">Leave a comment</a>
+    </p>
+  </header>
+  <div>
+      <p>使用python unittest+requests对Jenkins构建及禁用job接口进行测试:</p>
+<div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">HTTPBasicAuth</span>
+
+
+<span class="k">class</span> <span class="nc">JenkinsPostTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 构建job的url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build_job_url</span> <span class="o">=</span> <span class="s1">&#39;http://192.168.217.130:8080/jenkins/job/check_python_version/build&#39;</span>
+        <span class="c1"># 禁用job的url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disable_job_url</span> <span class="o">=</span> <span class="s1">&#39;http://192.168.217.130:8080/jenkins/job/check_python_version/disable&#39;</span>
+        <span class="c1"># 获取job状态等信息的rul</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job_url</span> <span class="o">=</span> <span class="s1">&#39;http://192.168.217.130:8080/jenkins/job/check_python_version/api/json&#39;</span>
+
+    <span class="c1"># 测试构建某一job接口</span>
+    <span class="k">def</span> <span class="nf">test_buildJob</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">build_job_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span>
+        <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+
+    <span class="c1"># 测试禁用某一job接口</span>
+    <span class="k">def</span> <span class="nf">test_disableJob</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 确认job状态是否可执行，&#39;buildable&#39;:&#39;true&#39;</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_JobInfo</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+        <span class="c1"># 禁用job，断言禁用job是否成功</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">disable_job_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="c1"># 获取当前job状态</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_JobInfo</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">status</span>
+
+    <span class="c1"># 获取当前job信息</span>
+    <span class="k">def</span> <span class="nf">get_JobInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">job_info</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">job_url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">job_info</span><span class="p">[</span><span class="s1">&#39;buildable&#39;</span><span class="p">]</span>
+</pre></div>
+      <a class="btn" href="https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/#JenkinsBuildJobApiTest">Continue reading</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://xmenfolk.github.io/posts/simplePythonUnittest/">一个简单Python单元测试用例</a></h2>
     <p>
       Posted on 周三 13 四月 2016 in <a href="https://xmenfolk.github.io/category/python.html">[python]</a>
@@ -119,7 +177,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">,</span> <span class="n">div</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
       <a class="btn" href="https://xmenfolk.github.io/posts/simplePythonUnittest/#simplePythonUnittest">Continue reading</a>

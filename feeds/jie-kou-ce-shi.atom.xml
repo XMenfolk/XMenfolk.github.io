@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Angie's Blog</title><link href="https://xmenfolk.github.io/" rel="alternate"></link><link href="https://xmenfolk.github.io/feeds/jie-kou-ce-shi.atom.xml" rel="self"></link><id>https://xmenfolk.github.io/</id><updated>2016-04-20T00:00:00-03:00</updated><entry><title>接口测试之基础篇</title><link href="https://xmenfolk.github.io/posts/intefacetestBase/" rel="alternate"></link><published>2016-04-20T00:00:00-03:00</published><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-04-20:posts/intefacetestBase/</id><summary type="html">&lt;h4&gt;接口测试简介&lt;/h4&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Angie's Blog - [接口测试]</title><link href="https://xmenfolk.github.io/" rel="alternate"></link><link href="https://xmenfolk.github.io/feeds/jie-kou-ce-shi.atom.xml" rel="self"></link><id>https://xmenfolk.github.io/</id><updated>2016-04-20T00:00:00-03:00</updated><entry><title>接口测试之基础篇</title><link href="https://xmenfolk.github.io/posts/intefacetestBase/" rel="alternate"></link><published>2016-04-20T00:00:00-03:00</published><updated>2016-04-20T00:00:00-03:00</updated><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-04-20:/posts/intefacetestBase/</id><summary type="html">&lt;h4&gt;接口测试简介&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;百度百科中为接口测试给出的定义：&lt;br /&gt;
-接口测试是测试系统组件间接口的一种测试。&lt;br /&gt;
-接口测试主要用于检测外部系统与系统之间以及内部各个子系统之间的交互点。&lt;br /&gt;
+&lt;li&gt;百度百科中为接口测试给出的定义：&lt;br&gt;
+接口测试是测试系统组件间接口的一种测试。&lt;br&gt;
+接口测试主要用于检测外部系统与系统之间以及内部各个子系统之间的交互点。&lt;br&gt;
 测试的重点是要检查数据的交换，传递和控制管理过程，以及系统间的相互逻辑依赖关系等。  &lt;/li&gt;
-&lt;li&gt;接口测试通常包括两类，模块之间的接口测试和 Web 接口测试。&lt;br /&gt;
-前者通常是由开发人员在单元测试中进行测试，后者则通常由测试人员进行测试。&lt;br /&gt;
+&lt;li&gt;接口测试通常包括两类，模块之间的接口测试和 Web 接口测试。&lt;br&gt;
+前者通常是由开发人员在单元测试中进行测试，后者则通常由测试人员进行测试。&lt;br&gt;
 后面的内容主要为 Web 接口测试。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;接口测试的意义&lt;/h4&gt;
-&lt;p&gt;测试人员都知道，在整个软件生命周期中，测试介入的越早，成本越低，收益越好。&lt;br /&gt;
-通常，前端的实现，依赖于后端的接口，测试人员需要在开发人员输出接口文档后，就立即开始设计接口测试用例，在开发人员将接口开发完成后，就可以进行接口测试了。&lt;br /&gt;
+&lt;p&gt;测试人员都知道，在整个软件生命周期中，测试介入的越早，成本越低，收益越好。&lt;br&gt;
+通常，前端的实现，依赖于后端的接口，测试人员需要在开发人员输出接口文档后，就立即开始设计接口测试用例，在开发人员将接口开发完成后，就可以进行接口测试了。&lt;br&gt;
 接口测试，可以提前暴露很多问题，此时开发解决问题，相对在前端的功能测试中发现的问题，其代价要小的多。接口的正确和稳定，会为后面前端的功能测试减少很大一部分工作量。另外接口的自动化、持续集成也相对的比较容易去实现。&lt;/p&gt;
 &lt;h4&gt;接口测试的内容&lt;/h4&gt;
 &lt;ul&gt;
@@ -45,11 +45,57 @@
 &lt;li&gt;python 的 requests&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;其他开源库&lt;/h4&gt;
-&lt;p&gt;moco&lt;/p&gt;</summary><category term="[接口测试]"></category></entry><entry><title>接口测试之实例篇</title><link href="https://xmenfolk.github.io/posts/intefacetestExample/" rel="alternate"></link><published>2016-04-20T00:00:00-03:00</published><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-04-20:posts/intefacetestExample/</id><summary type="html">&lt;h4&gt;一、测试需求描述&lt;/h4&gt;
-&lt;p&gt;1、 本次测试的接口为http服务端接口&lt;br /&gt;
-  2、 接口的主要分成两类，一类提供给查询功能接口，一类提供保存数据功能接口，这里我们举例2个保存数据的接口，因为这两个接口有关联性，比较有代表性；&lt;br /&gt;
+&lt;p&gt;moco&lt;/p&gt;</summary><content type="html">&lt;h4&gt;接口测试简介&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;百度百科中为接口测试给出的定义：&lt;br&gt;
+接口测试是测试系统组件间接口的一种测试。&lt;br&gt;
+接口测试主要用于检测外部系统与系统之间以及内部各个子系统之间的交互点。&lt;br&gt;
+测试的重点是要检查数据的交换，传递和控制管理过程，以及系统间的相互逻辑依赖关系等。  &lt;/li&gt;
+&lt;li&gt;接口测试通常包括两类，模块之间的接口测试和 Web 接口测试。&lt;br&gt;
+前者通常是由开发人员在单元测试中进行测试，后者则通常由测试人员进行测试。&lt;br&gt;
+后面的内容主要为 Web 接口测试。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;接口测试的意义&lt;/h4&gt;
+&lt;p&gt;测试人员都知道，在整个软件生命周期中，测试介入的越早，成本越低，收益越好。&lt;br&gt;
+通常，前端的实现，依赖于后端的接口，测试人员需要在开发人员输出接口文档后，就立即开始设计接口测试用例，在开发人员将接口开发完成后，就可以进行接口测试了。&lt;br&gt;
+接口测试，可以提前暴露很多问题，此时开发解决问题，相对在前端的功能测试中发现的问题，其代价要小的多。接口的正确和稳定，会为后面前端的功能测试减少很大一部分工作量。另外接口的自动化、持续集成也相对的比较容易去实现。&lt;/p&gt;
+&lt;h4&gt;接口测试的内容&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;测试返回值是否正确&lt;/li&gt;
+&lt;li&gt;测试返回值类型是否符合设计文档&lt;/li&gt;
+&lt;li&gt;测试返回的 error 信息是否符合设计&lt;/li&gt;
+&lt;li&gt;对输入进行类型、边界测试，测试接口是否有对异常数据做处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;需要掌握或了解的知识&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;了解后端常用开发语言，java、php、python 等&lt;/li&gt;
+&lt;li&gt;了解各种开发语言的某些特性。比如在 php 中的 empty() 方法，有开发同学会用这个方法判断一个字符串是否为空，但这里如果传入的值为0，empty 方法也会判断为空，即 empty(0) 返回的值为 true！因此设计接口用例的时候，要增加此类含有特殊值的 case&lt;/li&gt;
+&lt;li&gt;了解 tcp/ip、http、https 协议&lt;/li&gt;
+&lt;li&gt;掌握常用的请求方式，get、post、put&lt;/li&gt;
+&lt;li&gt;掌握 json、xml、html 的语法&lt;/li&gt;
+&lt;li&gt;掌握常用的抓包方法&lt;/li&gt;
+&lt;li&gt;掌握基本的增删改查 sql 语句&lt;/li&gt;
+&lt;li&gt;掌握一种语言，python、java 或其他语言&lt;/li&gt;
+&lt;li&gt;掌握 jenkins 环境的搭建&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;接口测试工具&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Postman&lt;/li&gt;
+&lt;li&gt;Jmeter&lt;/li&gt;
+&lt;li&gt;SoapUI&lt;/li&gt;
+&lt;li&gt;Fitnesse&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;接口测试框架或测试库&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;RobotFramework&lt;/li&gt;
+&lt;li&gt;python 的 requests&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;其他开源库&lt;/h4&gt;
+&lt;p&gt;moco&lt;/p&gt;</content><category term="[接口测试]"></category></entry><entry><title>接口测试之实例篇</title><link href="https://xmenfolk.github.io/posts/intefacetestExample/" rel="alternate"></link><published>2016-04-20T00:00:00-03:00</published><updated>2016-04-20T00:00:00-03:00</updated><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-04-20:/posts/intefacetestExample/</id><summary type="html">&lt;h4&gt;一、测试需求描述&lt;/h4&gt;
+&lt;p&gt;1、 本次测试的接口为http服务端接口&lt;br&gt;
+  2、 接口的主要分成两类，一类提供给查询功能接口，一类提供保存数据功能接口，这里我们举例2个保存数据的接口，因为这两个接口有关联性，比较有代表性；&lt;br&gt;
   3、接口描述：  &lt;/p&gt;
-&lt;p&gt;保存信用卡账户信息接口：&lt;br /&gt;
+&lt;p&gt;保存信用卡账户信息接口：&lt;br&gt;
 传入参数：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;args=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
    &lt;span class="nt"&gt;&amp;quot;clientNo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;434343556&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -60,7 +106,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;传出参数：&lt;br /&gt;
+&lt;p&gt;传出参数：&lt;br&gt;
 1)保存成功：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnCode&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnMsg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;保存成功&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -86,7 +132,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;传出参数：&lt;br /&gt;
+&lt;p&gt;传出参数：&lt;br&gt;
 1)保存成功：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnCode&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnMsg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;保存成功&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -100,37 +146,119 @@
 &lt;p&gt;保存逻辑：保存时先去信用卡信息表查看clientNo对应的表是否存在，如存在则数据校验通过，将数据保存进入信用卡账单表&lt;/p&gt;
 &lt;p&gt;注：这个保存逻辑在接口开发设计文档中可能没有写或写的不详细，这时要与开发接口人员或产品人员多多沟通去熟悉接口逻辑&lt;/p&gt;
 &lt;h4&gt;二、测试分析&lt;/h4&gt;
-&lt;p&gt;1、逻辑分析&lt;br /&gt;
-      1)、从保存逻辑上来看，这两个接口明显是有依赖关系的，所以我们先测试信用卡账户信息接口，再测试保存信用卡账单接口&lt;br /&gt;
-      2)、接口传入的数据，最终是保存到数据库中，所以当接口返回保存成功的时候，我们也要去对应的数据库表中核对相应的数据(这里可以用jmeter链接数据库进行操作代理手工)&lt;br /&gt;
+&lt;p&gt;1、逻辑分析&lt;br&gt;
+      1)、从保存逻辑上来看，这两个接口明显是有依赖关系的，所以我们先测试信用卡账户信息接口，再测试保存信用卡账单接口&lt;br&gt;
+      2)、接口传入的数据，最终是保存到数据库中，所以当接口返回保存成功的时候，我们也要去对应的数据库表中核对相应的数据(这里可以用jmeter链接数据库进行操作代理手工)&lt;br&gt;
       3)、当出现保存失败的情况时，我们需要查看系统的日志，所以我们也要准备好查看日志的权限和地址  &lt;/p&gt;
-&lt;p&gt;2、测试工具的准备&lt;br /&gt;
-      1)、单个接口测试，使用poster/postman&lt;br /&gt;
+&lt;p&gt;2、测试工具的准备&lt;br&gt;
+      1)、单个接口测试，使用poster/postman&lt;br&gt;
       2)、多个接口测试，我们使用Jmeter进行测试  &lt;/p&gt;
 &lt;h4&gt;三、使用工具测试&lt;/h4&gt;
 &lt;p&gt;本实例中使用Jmeter对接口进行测试  &lt;/p&gt;
 &lt;p&gt;首先我们说一下为什么用Poster测试后我们还要用Jmeter做接口测试，在用poster测试时候会发现的是一个接口一个接口的测试，我们每次测试成功后的数据，在工具中是无法保存的，再次测试的时候我们还要重新输入测试的数据，当我们测试一个接口的时候可能感觉不明显，但是当你测试几十个接口的时候，你就会发现使用Jmeter的好处，如果按测试阶段来说冒烟测试我们用poster，集成测试我们用Jmeter  &lt;/p&gt;
 &lt;h4&gt;四、使用Jmeter接口测试&lt;/h4&gt;
-&lt;p&gt;1、首先邮件添加一个线程组，这里我们重命名InterfaceTest&lt;br /&gt;
-&lt;img alt="01" src="/postsimage/post01/01.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="02" src="/postsimage/post01/02.png" /&gt;&lt;/p&gt;
+&lt;p&gt;1、首先邮件添加一个线程组，这里我们重命名InterfaceTest&lt;br&gt;
+&lt;img alt="01" src="/postsimage/post01/01.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="02" src="/postsimage/post01/02.png"&gt;&lt;/p&gt;
 &lt;p&gt;2、在线程组上添加一个Http默认请求，并配置服务器的IP地址和传输编码  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="03" src="/postsimage/post01/03.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="04" src="/postsimage/post01/04.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="03" src="/postsimage/post01/03.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="04" src="/postsimage/post01/04.png"&gt;&lt;/p&gt;
 &lt;p&gt;3、在线程组中添加一个HTTP请求，这里我们重命名“增加信用卡账户信息接口”&lt;/p&gt;
-&lt;p&gt;&lt;img alt="05" src="/postsimage/post01/05.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="06" src="/postsimage/post01/06.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="05" src="/postsimage/post01/05.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="06" src="/postsimage/post01/06.png"&gt;&lt;/p&gt;
 &lt;p&gt;4、配置接口请求信息，这配置示例如下：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="07" src="/postsimage/post01/07.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="07" src="/postsimage/post01/07.png"&gt;&lt;/p&gt;
 &lt;p&gt;5、在保存信用卡账单接口请求，示例如下：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="08" src="/postsimage/post01/08.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="08" src="/postsimage/post01/08.png"&gt;&lt;/p&gt;
 &lt;p&gt;注：由于Jmeter请求线程组内的请求时从第一个开始执行，所以我们将需要最先执行的请求放在前面&lt;/p&gt;
 &lt;p&gt;6、在线程组上添加监听器，察看结果树和聚合报告&lt;/p&gt;
-&lt;p&gt;&lt;img alt="09" src="/postsimage/post01/09.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="09" src="/postsimage/post01/09.png"&gt;&lt;/p&gt;
+&lt;p&gt;7、点击启动 …&lt;/p&gt;</summary><content type="html">&lt;h4&gt;一、测试需求描述&lt;/h4&gt;
+&lt;p&gt;1、 本次测试的接口为http服务端接口&lt;br&gt;
+  2、 接口的主要分成两类，一类提供给查询功能接口，一类提供保存数据功能接口，这里我们举例2个保存数据的接口，因为这两个接口有关联性，比较有代表性；&lt;br&gt;
+  3、接口描述：  &lt;/p&gt;
+&lt;p&gt;保存信用卡账户信息接口：&lt;br&gt;
+传入参数：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;args=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;clientNo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;434343556&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;alias&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;**信用卡2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;cardName&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;长城*****卡2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;cardNo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;25622356788251&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;传出参数：&lt;br&gt;
+1)保存成功：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnCode&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnMsg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;保存成功&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2)保存失败：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnCode&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnMsg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;保存失败&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;保存逻辑：数据传入进来，验证通过，保存到信用卡账户表中&lt;/p&gt;
+&lt;p&gt;保存信用卡账单接口：
+传入参数：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;args=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;clientNo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;434343556&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;accountName&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;测试&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;billDate&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;08&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;billMonth&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;201509&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;cardNo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;25622356788251&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;currentPayment&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;欠款459.80&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;quot;paymentDate&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;2015-09-25 09:00:00&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;传出参数：&lt;br&gt;
+1)保存成功：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnCode&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnMsg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;保存成功&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2)保存失败：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnCode&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;returnMsg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;保存失败&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;保存逻辑：保存时先去信用卡信息表查看clientNo对应的表是否存在，如存在则数据校验通过，将数据保存进入信用卡账单表&lt;/p&gt;
+&lt;p&gt;注：这个保存逻辑在接口开发设计文档中可能没有写或写的不详细，这时要与开发接口人员或产品人员多多沟通去熟悉接口逻辑&lt;/p&gt;
+&lt;h4&gt;二、测试分析&lt;/h4&gt;
+&lt;p&gt;1、逻辑分析&lt;br&gt;
+      1)、从保存逻辑上来看，这两个接口明显是有依赖关系的，所以我们先测试信用卡账户信息接口，再测试保存信用卡账单接口&lt;br&gt;
+      2)、接口传入的数据，最终是保存到数据库中，所以当接口返回保存成功的时候，我们也要去对应的数据库表中核对相应的数据(这里可以用jmeter链接数据库进行操作代理手工)&lt;br&gt;
+      3)、当出现保存失败的情况时，我们需要查看系统的日志，所以我们也要准备好查看日志的权限和地址  &lt;/p&gt;
+&lt;p&gt;2、测试工具的准备&lt;br&gt;
+      1)、单个接口测试，使用poster/postman&lt;br&gt;
+      2)、多个接口测试，我们使用Jmeter进行测试  &lt;/p&gt;
+&lt;h4&gt;三、使用工具测试&lt;/h4&gt;
+&lt;p&gt;本实例中使用Jmeter对接口进行测试  &lt;/p&gt;
+&lt;p&gt;首先我们说一下为什么用Poster测试后我们还要用Jmeter做接口测试，在用poster测试时候会发现的是一个接口一个接口的测试，我们每次测试成功后的数据，在工具中是无法保存的，再次测试的时候我们还要重新输入测试的数据，当我们测试一个接口的时候可能感觉不明显，但是当你测试几十个接口的时候，你就会发现使用Jmeter的好处，如果按测试阶段来说冒烟测试我们用poster，集成测试我们用Jmeter  &lt;/p&gt;
+&lt;h4&gt;四、使用Jmeter接口测试&lt;/h4&gt;
+&lt;p&gt;1、首先邮件添加一个线程组，这里我们重命名InterfaceTest&lt;br&gt;
+&lt;img alt="01" src="/postsimage/post01/01.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="02" src="/postsimage/post01/02.png"&gt;&lt;/p&gt;
+&lt;p&gt;2、在线程组上添加一个Http默认请求，并配置服务器的IP地址和传输编码  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="03" src="/postsimage/post01/03.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="04" src="/postsimage/post01/04.png"&gt;&lt;/p&gt;
+&lt;p&gt;3、在线程组中添加一个HTTP请求，这里我们重命名“增加信用卡账户信息接口”&lt;/p&gt;
+&lt;p&gt;&lt;img alt="05" src="/postsimage/post01/05.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="06" src="/postsimage/post01/06.png"&gt;&lt;/p&gt;
+&lt;p&gt;4、配置接口请求信息，这配置示例如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="07" src="/postsimage/post01/07.png"&gt;&lt;/p&gt;
+&lt;p&gt;5、在保存信用卡账单接口请求，示例如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="08" src="/postsimage/post01/08.png"&gt;&lt;/p&gt;
+&lt;p&gt;注：由于Jmeter请求线程组内的请求时从第一个开始执行，所以我们将需要最先执行的请求放在前面&lt;/p&gt;
+&lt;p&gt;6、在线程组上添加监听器，察看结果树和聚合报告&lt;/p&gt;
+&lt;p&gt;&lt;img alt="09" src="/postsimage/post01/09.png"&gt;&lt;/p&gt;
 &lt;p&gt;7、点击启动，运行结束后查看，结果树和聚合报告&lt;/p&gt;
-&lt;p&gt;&lt;img alt="10" src="/postsimage/post01/10.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="11" src="/postsimage/post01/11.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="12" src="/postsimage/post01/12.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="10" src="/postsimage/post01/10.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="11" src="/postsimage/post01/11.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="12" src="/postsimage/post01/12.png"&gt;&lt;/p&gt;
 &lt;p&gt;8、去数据库中核对数据&lt;/p&gt;
 &lt;p&gt;9、大批量数据制造
       思路：
@@ -138,8 +266,8 @@
    2)、两个接口的依赖关系，保存信用卡账单接口(clientNo,cardNo）要和信用卡账户信息接口(clientNo,cardNo）的两个相同，也就是说这两个要用一个参数，且还不能重复
    根据上面两个特点，(clientNo,cardNo）我们选取使用计数器，每循环一次计数器加1，那么我们将线程组设置循环执行1万次；billMonth，paymentDate，这两个日期我们是使用随机函数${__Random(1,9,)}，将月份参数化；
    3)、在线程组上创建计数器，配置如下：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="13" src="/postsimage/post01/13.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="14" src="/postsimage/post01/14.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="13" src="/postsimage/post01/13.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="14" src="/postsimage/post01/14.png"&gt;&lt;/p&gt;
 &lt;p&gt;4)、引用计数器和随机函数
 信用卡账户接口传入参数&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;args=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
@@ -165,9 +293,50 @@
 
 
 &lt;p&gt;5)、设置线程组循环测试，点击运行,查看运行结果，再去数据库看看，大批量数据就这样产生了&lt;/p&gt;
-&lt;p&gt;&lt;img alt="15" src="/postsimage/post01/15.png" /&gt;&lt;/p&gt;</summary><category term="[接口测试]"></category></entry><entry><title>接口测试之Moco篇</title><link href="https://xmenfolk.github.io/posts/intefacetestMock/" rel="alternate"></link><published>2016-04-20T00:00:00-03:00</published><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-04-20:posts/intefacetestMock/</id><summary type="html">&lt;h4&gt;Moco 简介&lt;/h4&gt;
-&lt;p&gt;Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。&lt;br /&gt;
-简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。&lt;br /&gt;
+&lt;p&gt;&lt;img alt="15" src="/postsimage/post01/15.png"&gt;&lt;/p&gt;</content><category term="[接口测试]"></category></entry><entry><title>接口测试之Moco篇</title><link href="https://xmenfolk.github.io/posts/intefacetestMock/" rel="alternate"></link><published>2016-04-20T00:00:00-03:00</published><updated>2016-04-20T00:00:00-03:00</updated><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-04-20:/posts/intefacetestMock/</id><summary type="html">&lt;h4&gt;Moco 简介&lt;/h4&gt;
+&lt;p&gt;Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。&lt;br&gt;
+简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。&lt;br&gt;
+Moco 能帮助解决开发中的哪些问题？作者的回答如下：    &lt;/p&gt;
+&lt;p&gt;Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。&lt;/p&gt;
+&lt;h4&gt;Moco 用于接口测试&lt;/h4&gt;
+&lt;p&gt;既然开发人员可以通过 Moco 模拟一个还不存在的服务来进行开发、调试，那对于接口测试来说，也可以模拟一个服务进行测试。
+一般而言，在项目的接口文档输出后，开发人员会进行接口开发工作，测人员会进行接口用例的设计，但往往完成用例设计会先于接口开发工作，此时如果要进行接口用例的执行，则前提是开发人员完成接口开发工作。
+而通过 Moco 框架，就可以在接口文档输出后，在接口开发、接口用例设计的同时，使用 Moco 搭建一个模拟服务器，这样在用例设计完成后，即使接口开发工作还未完成，也可以立即进行执行接口用例，在这个过程中可以修改、补充用例，如此的话，在接口开发完成以后，只需要简单的去执行所有的用例就 OK，省去了很大的工作量，并且这些完善的用例，用自动化去执行，效果更佳。&lt;/p&gt;
+&lt;h4&gt;开始使用 Moco&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;github 地址：&lt;a href="https://github.com/dreamhead/moco" target="_blank"&gt;Moco&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在项目的 readme 中找到 Quick Start，Download Standalone Moco Runner&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;新建一个 test.json：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+   &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;quot;response&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+         &lt;span class="nt"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello, Moco&amp;quot;&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+   &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;启动服务，端口号可自己设置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;java&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;jar&lt;/span&gt; &lt;span class="n"&gt;moco&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;runner&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.10.2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;standalone&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;jar&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="mi"&gt;12306&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;json&lt;/span&gt;
+&lt;span class="mi"&gt;29&lt;/span&gt; &lt;span class="n"&gt;一月&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt; &lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="n"&gt;INFO&lt;/span&gt;  &lt;span class="n"&gt;Server&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;started&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mi"&gt;12306&lt;/span&gt;
+&lt;span class="mi"&gt;29&lt;/span&gt; &lt;span class="n"&gt;一月&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt; &lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="n"&gt;INFO&lt;/span&gt;  &lt;span class="n"&gt;Shutdown&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;63643&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;在浏览器中访问 http://localhost:12306， 将会在页面上显示 Hello,Moco&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;配置 …&lt;/p&gt;</summary><content type="html">&lt;h4&gt;Moco 简介&lt;/h4&gt;
+&lt;p&gt;Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。&lt;br&gt;
+简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。&lt;br&gt;
 Moco 能帮助解决开发中的哪些问题？作者的回答如下：    &lt;/p&gt;
 &lt;p&gt;Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。&lt;/p&gt;
 &lt;h4&gt;Moco 用于接口测试&lt;/h4&gt;
@@ -304,15 +473,15 @@ Moco 能帮助解决开发中的哪些问题？作者的回答如下：    &lt;/
 &lt;ul&gt;
 &lt;li&gt;测试获取书籍列表：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="01" src="/postsimage/mocktest/01" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="01" src="/postsimage/mocktest/01"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;获取 Java 核心编程的信息：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="02" src="/postsimage/mocktest/02" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="02" src="/postsimage/mocktest/02"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;获取 Jack 的信息：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="03" src="/postsimage/mocktest/03" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="03" src="/postsimage/mocktest/03"&gt;&lt;/p&gt;
 &lt;h4&gt;其它配置方法&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;通过配置不同的 json 文件，使得接口请求方式、返回的数据满足接口文档，这样就可以在完成接口用例的同时进行调试用例、用例完成后可以立即对接口进行测试。另外前端开发人员也可以使用这些模拟数据进行调试，这样就让测试人员、前端开发人员不用依赖于接口开发人员对接口的开发。&lt;/li&gt;
@@ -320,7 +489,7 @@ Moco 能帮助解决开发中的哪些问题？作者的回答如下：    &lt;/
 &lt;li&gt;前面 demo 中配置的返回数据类型都是 json，Moco 当然也支持 text、file 等类型&lt;/li&gt;
 &lt;li&gt;可以在 request 中设置 Headers , Cookies , StatusCode&lt;/li&gt;
 &lt;li&gt;Moco 的其它特性可参考 Moco 的 API 文档&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="[接口测试]"></category></entry><entry><title>测试Jenkins构建及禁用Job接口</title><link href="https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/" rel="alternate"></link><published>2016-04-13T00:00:00-03:00</published><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-04-13:posts/JenkinsBuildJobApiTest/</id><summary type="html">&lt;p&gt;使用python unittest+requests对Jenkins构建及禁用job接口进行测试:&lt;/p&gt;
+&lt;/ul&gt;</content><category term="[接口测试]"></category></entry><entry><title>测试Jenkins构建及禁用Job接口</title><link href="https://xmenfolk.github.io/posts/JenkinsBuildJobApiTest/" rel="alternate"></link><published>2016-04-13T00:00:00-03:00</published><updated>2016-04-13T00:00:00-03:00</updated><author><name>Angie</name></author><id>tag:xmenfolk.github.io,2016-04-13:/posts/JenkinsBuildJobApiTest/</id><summary type="html">&lt;p&gt;使用python unittest+requests对Jenkins构建及禁用job接口进行测试:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# coding=utf-8&lt;/span&gt;
 
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
@@ -363,4 +532,47 @@ Moco 能帮助解决开发中的哪些问题？作者的回答如下：    &lt;/
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_JobInfo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="n"&gt;job_info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;job_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;admin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;admin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;job_info&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;buildable&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="[Python"></category><category term="接口测试]"></category></entry></feed>
+&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;使用python unittest+requests对Jenkins构建及禁用job接口进行测试:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# coding=utf-8&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;requests.auth&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;HTTPBasicAuth&lt;/span&gt;
+
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;JenkinsPostTest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setUp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="c1"&gt;# 构建job的url&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;build_job_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;http://192.168.217.130:8080/jenkins/job/check_python_version/build&amp;#39;&lt;/span&gt;
+        &lt;span class="c1"&gt;# 禁用job的url&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;disable_job_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;http://192.168.217.130:8080/jenkins/job/check_python_version/disable&amp;#39;&lt;/span&gt;
+        &lt;span class="c1"&gt;# 获取job状态等信息的rul&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;job_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;http://192.168.217.130:8080/jenkins/job/check_python_version/api/json&amp;#39;&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# 测试构建某一job接口&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_buildJob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;build_job_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;admin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;admin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;status_code&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;status_code&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;201&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# 测试禁用某一job接口&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_disableJob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="c1"&gt;# 确认job状态是否可执行，&amp;#39;buildable&amp;#39;:&amp;#39;true&amp;#39;&lt;/span&gt;
+        &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_JobInfo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertTrue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# 禁用job，断言禁用job是否成功&lt;/span&gt;
+        &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;disable_job_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;admin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;admin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;status_code&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# 获取当前job状态&lt;/span&gt;
+        &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_JobInfo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertFalse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# 获取当前job信息&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_JobInfo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;job_info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;job_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;admin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;admin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;job_info&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;buildable&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="[Python"></category><category term="接口测试]"></category></entry></feed>

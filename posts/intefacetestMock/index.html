@@ -21,11 +21,11 @@
   <meta name="robots" content="index, follow" />
 
 <meta name="author" content="Angie" />
-<meta name="description" content="Moco 简介 Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。 简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。 Moco 能帮助解决开发中的哪些问题？作者的回答如下： Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。 Moco 用于接口测试 既然开发人员可以通过 Moco 模拟一个还不存在的服务来进行开发、调试，那对于接口测试来说，也可以模拟一个服务进行测试。 一般而言，在项目的接口文档输出后，开发人员会进行接口开发工作，测人员会进行接口用例的设计，但往往完成用例设计会先于接口开发工作，此时如果要进行接口用例的执行，则前提是开发人员完成接口开发工作。 而通过 Moco 框架，就可以在接口文档输出后，在接口开发、接口用例设计的同时，使用 Moco 搭建一个模拟服务器，这样在用例设计完成后，即使接口开发工作还未完成，也可以立即进行执行接口用例，在这个过程中可以修改、补充用例，如此的话，在接口开发完成以后，只需要简单的去执行所有的用例就 OK，省去了很大的工作量，并且这些完善的用例，用自动化去执行，效果更佳。 开始使用 Moco github 地址：Moco 在项目的 readme 中找到 Quick Start，Download Standalone Moco Runner 新建一个 test.json： [ { "response": { "text": "Hello, Moco" } } ] 启动服务，端口号可自己设置 java -jar moco-runner-0.10.2-standalone.jar http -p 12306 -c test.json 29 一月 2016 14:25:20 [main] INFO Server is started at 12306 29 一月 2016 14:25:20 [main] INFO Shutdown port is 63643 在浏览器中访问 http://localhost:12306， 将会在页面上显示 Hello,Moco 配置 ..." />
+<meta name="description" content="Moco 简介 Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。 简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。 Moco 能帮助解决开发中的哪些问题？作者的回答如下： Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。 Moco 用于接口测试 既然开发人员可以通过 Moco 模拟一个还不存在的服务来进行开发、调试，那对于接口测试来说，也可以模拟一个服务进行测试。 一般而言，在项目的接口文档输出后，开发人员会进行接口开发工作，测人员会进行接口用例的设计，但往往完成用例设计会先于接口开发工作，此时如果要进行接口用例的执行，则前提是开发人员完成接口开发工作。 而通过 Moco 框架，就可以在接口文档输出后，在接口开发、接口用例设计的同时，使用 Moco 搭建一个模拟服务器，这样在用例设计完成后，即使接口开发工作还未完成，也可以立即进行执行接口用例，在这个过程中可以修改、补充用例，如此的话，在接口开发完成以后，只需要简单的去执行所有的用例就 OK，省去了很大的工作量，并且这些完善的用例，用自动化去执行，效果更佳。 开始使用 Moco github 地址：Moco 在项目的 readme 中找到 Quick Start，Download Standalone Moco Runner 新建一个 test.json： [ { "response": { "text": "Hello, Moco" } } ] 启动服务，端口号可自己设置 java -jar moco-runner-0.10.2-standalone.jar http -p 12306 -c test.json 29 一月 2016 14:25:20 [main] INFO Server is started at 12306 29 一月 2016 14:25:20 [main] INFO Shutdown port is 63643 在浏览器中访问 http://localhost:12306， 将会在页面上显示 Hello,Moco 配置 …" />
 <meta name="keywords" content="[接口测试]">
 <meta property="og:site_name" content="Angie's Blog"/>
 <meta property="og:title" content="接口测试之Moco篇"/>
-<meta property="og:description" content="Moco 简介 Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。 简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。 Moco 能帮助解决开发中的哪些问题？作者的回答如下： Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。 Moco 用于接口测试 既然开发人员可以通过 Moco 模拟一个还不存在的服务来进行开发、调试，那对于接口测试来说，也可以模拟一个服务进行测试。 一般而言，在项目的接口文档输出后，开发人员会进行接口开发工作，测人员会进行接口用例的设计，但往往完成用例设计会先于接口开发工作，此时如果要进行接口用例的执行，则前提是开发人员完成接口开发工作。 而通过 Moco 框架，就可以在接口文档输出后，在接口开发、接口用例设计的同时，使用 Moco 搭建一个模拟服务器，这样在用例设计完成后，即使接口开发工作还未完成，也可以立即进行执行接口用例，在这个过程中可以修改、补充用例，如此的话，在接口开发完成以后，只需要简单的去执行所有的用例就 OK，省去了很大的工作量，并且这些完善的用例，用自动化去执行，效果更佳。 开始使用 Moco github 地址：Moco 在项目的 readme 中找到 Quick Start，Download Standalone Moco Runner 新建一个 test.json： [ { "response": { "text": "Hello, Moco" } } ] 启动服务，端口号可自己设置 java -jar moco-runner-0.10.2-standalone.jar http -p 12306 -c test.json 29 一月 2016 14:25:20 [main] INFO Server is started at 12306 29 一月 2016 14:25:20 [main] INFO Shutdown port is 63643 在浏览器中访问 http://localhost:12306， 将会在页面上显示 Hello,Moco 配置 ..."/>
+<meta property="og:description" content="Moco 简介 Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。 简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。 Moco 能帮助解决开发中的哪些问题？作者的回答如下： Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。 Moco 用于接口测试 既然开发人员可以通过 Moco 模拟一个还不存在的服务来进行开发、调试，那对于接口测试来说，也可以模拟一个服务进行测试。 一般而言，在项目的接口文档输出后，开发人员会进行接口开发工作，测人员会进行接口用例的设计，但往往完成用例设计会先于接口开发工作，此时如果要进行接口用例的执行，则前提是开发人员完成接口开发工作。 而通过 Moco 框架，就可以在接口文档输出后，在接口开发、接口用例设计的同时，使用 Moco 搭建一个模拟服务器，这样在用例设计完成后，即使接口开发工作还未完成，也可以立即进行执行接口用例，在这个过程中可以修改、补充用例，如此的话，在接口开发完成以后，只需要简单的去执行所有的用例就 OK，省去了很大的工作量，并且这些完善的用例，用自动化去执行，效果更佳。 开始使用 Moco github 地址：Moco 在项目的 readme 中找到 Quick Start，Download Standalone Moco Runner 新建一个 test.json： [ { "response": { "text": "Hello, Moco" } } ] 启动服务，端口号可自己设置 java -jar moco-runner-0.10.2-standalone.jar http -p 12306 -c test.json 29 一月 2016 14:25:20 [main] INFO Server is started at 12306 29 一月 2016 14:25:20 [main] INFO Shutdown port is 63643 在浏览器中访问 http://localhost:12306， 将会在页面上显示 Hello,Moco 配置 …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="https://xmenfolk.github.io/posts/intefacetestMock/"/>
 <meta property="og:type" content="article"/>
@@ -78,8 +78,8 @@
   </header>
   <div>
     <h4>Moco 简介</h4>
-<p>Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。<br />
-简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。<br />
+<p>Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。<br>
+简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。<br>
 Moco 能帮助解决开发中的哪些问题？作者的回答如下：    </p>
 <p>Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。</p>
 <h4>Moco 用于接口测试</h4>
@@ -216,15 +216,15 @@ Moco 能帮助解决开发中的哪些问题？作者的回答如下：    </p>
 <ul>
 <li>测试获取书籍列表：</li>
 </ul>
-<p><img alt="01" src="/postsimage/mocktest/01" /></p>
+<p><img alt="01" src="/postsimage/mocktest/01"></p>
 <ul>
 <li>获取 Java 核心编程的信息：</li>
 </ul>
-<p><img alt="02" src="/postsimage/mocktest/02" /></p>
+<p><img alt="02" src="/postsimage/mocktest/02"></p>
 <ul>
 <li>获取 Jack 的信息：</li>
 </ul>
-<p><img alt="03" src="/postsimage/mocktest/03" /></p>
+<p><img alt="03" src="/postsimage/mocktest/03"></p>
 <h4>其它配置方法</h4>
 <ul>
 <li>通过配置不同的 json 文件，使得接口请求方式、返回的数据满足接口文档，这样就可以在完成接口用例的同时进行调试用例、用例完成后可以立即对接口进行测试。另外前端开发人员也可以使用这些模拟数据进行调试，这样就让测试人员、前端开发人员不用依赖于接口开发人员对接口的开发。</li>
@@ -294,7 +294,7 @@ Moco 能帮助解决开发中的哪些问题？作者的回答如下：    </p>
   },
   "image": "/images/profile.jpg",
   "url": "https://xmenfolk.github.io/posts/intefacetestMock/",
-  "description": "Moco 简介 Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。 简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。 Moco 能帮助解决开发中的哪些问题？作者的回答如下： Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。 Moco 用于接口测试 既然开发人员可以通过 Moco 模拟一个还不存在的服务来进行开发、调试，那对于接口测试来说，也可以模拟一个服务进行测试。 一般而言，在项目的接口文档输出后，开发人员会进行接口开发工作，测人员会进行接口用例的设计，但往往完成用例设计会先于接口开发工作，此时如果要进行接口用例的执行，则前提是开发人员完成接口开发工作。 而通过 Moco 框架，就可以在接口文档输出后，在接口开发、接口用例设计的同时，使用 Moco 搭建一个模拟服务器，这样在用例设计完成后，即使接口开发工作还未完成，也可以立即进行执行接口用例，在这个过程中可以修改、补充用例，如此的话，在接口开发完成以后，只需要简单的去执行所有的用例就 OK，省去了很大的工作量，并且这些完善的用例，用自动化去执行，效果更佳。 开始使用 Moco github 地址：Moco 在项目的 readme 中找到 Quick Start，Download Standalone Moco Runner 新建一个 test.json： [ { "response": { "text": "Hello, Moco" } } ] 启动服务，端口号可自己设置 java -jar moco-runner-0.10.2-standalone.jar http -p 12306 -c test.json 29 一月 2016 14:25:20 [main] INFO Server is started at 12306 29 一月 2016 14:25:20 [main] INFO Shutdown port is 63643 在浏览器中访问 http://localhost:12306， 将会在页面上显示 Hello,Moco 配置 ..."
+  "description": "Moco 简介 Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。 简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。 Moco 能帮助解决开发中的哪些问题？作者的回答如下： Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。 Moco 用于接口测试 既然开发人员可以通过 Moco 模拟一个还不存在的服务来进行开发、调试，那对于接口测试来说，也可以模拟一个服务进行测试。 一般而言，在项目的接口文档输出后，开发人员会进行接口开发工作，测人员会进行接口用例的设计，但往往完成用例设计会先于接口开发工作，此时如果要进行接口用例的执行，则前提是开发人员完成接口开发工作。 而通过 Moco 框架，就可以在接口文档输出后，在接口开发、接口用例设计的同时，使用 Moco 搭建一个模拟服务器，这样在用例设计完成后，即使接口开发工作还未完成，也可以立即进行执行接口用例，在这个过程中可以修改、补充用例，如此的话，在接口开发完成以后，只需要简单的去执行所有的用例就 OK，省去了很大的工作量，并且这些完善的用例，用自动化去执行，效果更佳。 开始使用 Moco github 地址：Moco 在项目的 readme 中找到 Quick Start，Download Standalone Moco Runner 新建一个 test.json： [ { "response": { "text": "Hello, Moco" } } ] 启动服务，端口号可自己设置 java -jar moco-runner-0.10.2-standalone.jar http -p 12306 -c test.json 29 一月 2016 14:25:20 [main] INFO Server is started at 12306 29 一月 2016 14:25:20 [main] INFO Shutdown port is 63643 在浏览器中访问 http://localhost:12306， 将会在页面上显示 Hello,Moco 配置 …"
 }
 </script></body>
 </html>

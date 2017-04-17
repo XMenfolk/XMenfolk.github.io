@@ -68,6 +68,72 @@
 
 <article>
   <header>
+    <h2><a href="https://xmenfolk.github.io/posts/thePerformanceTest/">性能测试之监控指标</a></h2>
+    <p>
+      Posted on 周一 17 四月 2017 in <a href="https://xmenfolk.github.io/category/xing-neng-ce-shi.html">[性能测试]</a>
+      &#8226; Tagged with
+      <a href="https://xmenfolk.github.io/tag/performancetest.html">[PerformanceTest]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/thePerformanceTest/#disqus_thread">Leave a comment</a>
+    </p>
+  </header>
+  <div>
+      <h4>测试场景</h4>
+<p>测试场景类型有性能测试、负载测试、压力测试、稳定性测试。  </p>
+<p>性能测试，是指以性能预期目标为前提，对系统不断施加压力，验证系统在资源可接受范围内，是否能达到性能预期。运用场景：此类型的测试目前最常见。每个项目的性能点，都需要做性能测试。  </p>
+<p>负载测试，狭义的负载测试，是指对系统不断地增加压力或增加一定压力下的持续时间，直到系统的某项或多项性能指标达到安全临界值，例如某种资源已经达到饱和状态等。运用场景：此类型的测试目前运用得比较少。一般情况下，是以服务器资源安全临界值为界限的测试。如果要模拟某个应用在指定服务器上最大且安全的负载量，则属于负载测试。  </p>
+<p>压力测试，是指超过安全负载的情况下，对系统不断施加压力，是通过确定一个系统的瓶颈或不能接收用户请求的性能点，来获得系统能提供的最大服务级别的测试。运用场景：此类型的测试目前运用得比较少。但对于大型的共享中心或者核心的应用也会用到。  </p>
+<p>稳定性测试，是指被测试系统在特定硬件、软件、网络环境条件下，给系统加载一定业务压力，使系统运行一段较长时间，以此检测系统是否稳定，一般稳定性测试时间为n*12小时。运用场景：此类型的测试目前也最常见，针对需要长时间稳定运行的性能点，需要执行稳定性测试。往往在一个项目的性能测试过程中，会划分出优先级较高的性能点，做稳定性测试。    </p>
+<h4>性能指标</h4>
+<ul>
+<li>
+<p>PV: PageView, 页面浏览量或点击量，用户每次刷新即被计算一次；用户的一次刷新，给服务器造成了一次请求。  </p>
+</li>
+<li>
+<p>UV: UniqueVisitor, 访问你网站的一台计算机客户端为一个访客，0:00 - 24:00 内相同的客户端仅记一次。  </p>
+</li>
+<li>
+<p>TPS: Transaction Per Second 每秒系统处理的交易或事物的数量，衡量系统处理能力的重要指标。  </p>
+</li>
+<li>
+<p>RT: 响应时间，从客户端发送一个请求开始，到客户端接收到从服务器返回的响应结果结束所经历的时间，包括请求发送时间，网络传输时间和服务器处理时间三部分。  </p>
+</li>
+<li>
+<p>VU: Virtual User， 模拟真实业务逻辑步骤的虚拟用户，虚拟用户模拟的操作步骤被记录在虚拟用户脚本中，通常使用并发实现。  </p>
+</li>
+<li>
+<p>TPS波动: 系统性能依赖于特定的硬件、软件代码、应用服务、网络资源等，所以在性能场景执行期间，TPS可能会表现为稳定，或者波动，抑或遵循一定的上升或下降趋势。用TPS波动系数来记录这个指标值。  </p>
+</li>
+<li>
+<p>CPU: CPU资源是指性能测试场景运行的这个时间段内，应用服务系统的CPU资源占用率。CPU资源是判断系统处理能力以及应用运行是否稳定的重要参数。  </p>
+</li>
+<li>
+<p>Load: 系统正在干活的多少的度量，队列长度。系统平均负载，被定义为在特定时间间隔（1m，5m，15m）内运行队列中的平均进程数。  </p>
+</li>
+<li>
+<p>I/O: I/O可分为磁盘IO和网卡IO。  </p>
+</li>
+<li>
+<p>JVM: 即java虚拟机，它拥有自己的处理器、堆栈、寄存器等，还有自己相应的指令系统。Java应用运行在JVM上面。  </p>
+</li>
+<li>
+<p>GC: GC是一种自动内存管理程序，它主要的职责是分配内存、保证被引用的对象始终在内存中、把不被应用的对象从内存中释放。FGC会引起JVM挂起。  </p>
+</li>
+<li>
+<p>网速: 网络中的数据传输速率，一般以Byte/s为单位。通过ping延时来反映网速。  </p>
+</li>
+<li>
+<p>流量: 性能测试中，一般指单位时间内流经网卡的总流量。分为inbound和outbound，一般以KB为单位。  </p>
+</li>
+<li>
+<p>VU（并发压测用户数） = TPS（每秒执行事务数） × RT（响应时间）  </p>
+</li>
+<li>
+<p>在寻找合适的并发用户数上，建议使用PTS(淘宝性能自动化：https://pts.aliyun.com/lite/index.htm?spm=0 …</p></li></ul>
+      <a class="btn" href="https://xmenfolk.github.io/posts/thePerformanceTest/#thePerformanceTest">Continue reading</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://xmenfolk.github.io/posts/theAutomationTestOfBdd/">自动化测试之BDD</a></h2>
     <p>
       Posted on 周日 26 二月 2017 in <a href="https://xmenfolk.github.io/category/zi-dong-hua-ce-shi.html">[自动化测试]</a>
@@ -365,62 +431,6 @@ cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/w
 <p><img alt="09" src="/postsimage/post01/09.png"></p>
 <p>7、点击启动 …</p>
       <a class="btn" href="https://xmenfolk.github.io/posts/intefacetestExample/#intefacetestExample">Continue reading</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://xmenfolk.github.io/posts/intefacetestMock/">接口测试之Moco篇</a></h2>
-    <p>
-      Posted on 周三 20 四月 2016 in <a href="https://xmenfolk.github.io/category/jie-kou-ce-shi.html">[接口测试]</a>
-      &#8226; Tagged with
-      <a href="https://xmenfolk.github.io/tag/jie-kou-ce-shi.html">[接口测试]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/intefacetestMock/#disqus_thread">Leave a comment</a>
-    </p>
-  </header>
-  <div>
-      <h4>Moco 简介</h4>
-<p>Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。<br>
-简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。<br>
-Moco 能帮助解决开发中的哪些问题？作者的回答如下：    </p>
-<p>Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。</p>
-<h4>Moco 用于接口测试</h4>
-<p>既然开发人员可以通过 Moco 模拟一个还不存在的服务来进行开发、调试，那对于接口测试来说，也可以模拟一个服务进行测试。
-一般而言，在项目的接口文档输出后，开发人员会进行接口开发工作，测人员会进行接口用例的设计，但往往完成用例设计会先于接口开发工作，此时如果要进行接口用例的执行，则前提是开发人员完成接口开发工作。
-而通过 Moco 框架，就可以在接口文档输出后，在接口开发、接口用例设计的同时，使用 Moco 搭建一个模拟服务器，这样在用例设计完成后，即使接口开发工作还未完成，也可以立即进行执行接口用例，在这个过程中可以修改、补充用例，如此的话，在接口开发完成以后，只需要简单的去执行所有的用例就 OK，省去了很大的工作量，并且这些完善的用例，用自动化去执行，效果更佳。</p>
-<h4>开始使用 Moco</h4>
-<ul>
-<li>
-<p>github 地址：<a href="https://github.com/dreamhead/moco" target="_blank">Moco</a></p>
-</li>
-<li>
-<p>在项目的 readme 中找到 Quick Start，Download Standalone Moco Runner</p>
-</li>
-<li>新建一个 test.json：</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="p">[</span>
-   <span class="p">{</span>
-      <span class="nt">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello, Moco&quot;</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
-
-
-<ul>
-<li>启动服务，端口号可自己设置</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">moco</span><span class="o">-</span><span class="n">runner</span><span class="o">-</span><span class="mf">0.10.2</span><span class="o">-</span><span class="n">standalone</span><span class="o">.</span><span class="na">jar</span> <span class="n">http</span> <span class="o">-</span><span class="n">p</span> <span class="mi">12306</span> <span class="o">-</span><span class="n">c</span> <span class="n">test</span><span class="o">.</span><span class="na">json</span>
-<span class="mi">29</span> <span class="n">一月</span> <span class="mi">2016</span> <span class="mi">14</span><span class="o">:</span><span class="mi">25</span><span class="o">:</span><span class="mi">20</span> <span class="o">[</span><span class="n">main</span><span class="o">]</span> <span class="n">INFO</span>  <span class="n">Server</span> <span class="n">is</span> <span class="n">started</span> <span class="n">at</span> <span class="mi">12306</span>
-<span class="mi">29</span> <span class="n">一月</span> <span class="mi">2016</span> <span class="mi">14</span><span class="o">:</span><span class="mi">25</span><span class="o">:</span><span class="mi">20</span> <span class="o">[</span><span class="n">main</span><span class="o">]</span> <span class="n">INFO</span>  <span class="n">Shutdown</span> <span class="n">port</span> <span class="n">is</span> <span class="mi">63643</span>
-</pre></div>
-
-
-<ul>
-<li>在浏览器中访问 http://localhost:12306， 将会在页面上显示 Hello,Moco</li>
-</ul>
-<p>配置 …</p>
-      <a class="btn" href="https://xmenfolk.github.io/posts/intefacetestMock/#intefacetestMock">Continue reading</a>
   </div>
 </article>
 

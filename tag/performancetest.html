@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet/less" type="text/css" href="https://xmenfolk.github.io/theme/stylesheet/style.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://xmenfolk.github.io/theme/stylesheet/pygments.min.css">
+  <link rel="stylesheet" type="text/css" href="https://xmenfolk.github.io/theme/stylesheet/font-awesome.min.css">
+
+
+    <link href="https://xmenfolk.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Angie's Blog Atom">
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+    <meta name="author" content="Angie" />
+    <meta name="description" content="Angie's Thoughts and Writings" />
+<meta property="og:site_name" content="Angie's Blog"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="Angie's Blog"/>
+<meta property="og:description" content="Angie's Thoughts and Writings"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://xmenfolk.github.io"/>
+<meta property="og:image" content="/images/profile.jpg">
+
+  <title>Angie's Blog &ndash; Tag: [PerformanceTest]</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://xmenfolk.github.io">
+        <img src="/images/profile.jpg" alt="Angie" title="Angie">
+      </a>
+      <h1><a href="https://xmenfolk.github.io">Angie</a></h1>
+      <p>A programmer who love rock and roll</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/pages/about.html">关于自己</a></li>
+        </ul>
+      </nav>
+      <ul class="social">
+        <li><a class="sc-weibo" href="http://weibo.com/1674094122/profile?topnav=1&wvr=6&is_all=1" target="_blank"><i class="fa fa-weibo"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/XMenfolk" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google" href="https://google.com.hk" target="_blank"><i class="fa fa-google"></i></a></li>
+      </ul>
+    </div>
+
+    <!--form class="navbar-search pull-right" action="/search.html">
+      <input type="text" class="search-query" placeholder="Search" name="q" id="s">
+   </form>-->
+
+  </aside>
+  <main>
+    <nav>
+      <a href="https://xmenfolk.github.io">Home</a>
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+      <a href="https://xmenfolk.github.io/feeds/all.atom.xml">Atom</a>
+    </nav>
+
+<article>
+  <header>
+    <h2><a href="https://xmenfolk.github.io/posts/thePerformanceTest/">性能测试之监控指标</a></h2>
+    <p>
+      Posted on 周一 17 四月 2017 in <a href="https://xmenfolk.github.io/category/xing-neng-ce-shi.html">[性能测试]</a>
+      &#8226; Tagged with
+      <a href="https://xmenfolk.github.io/tag/performancetest.html">[PerformanceTest]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/thePerformanceTest/#disqus_thread">Leave a comment</a>
+    </p>
+  </header>
+  <div>
+      <h4>测试场景</h4>
+<p>测试场景类型有性能测试、负载测试、压力测试、稳定性测试。  </p>
+<p>性能测试，是指以性能预期目标为前提，对系统不断施加压力，验证系统在资源可接受范围内，是否能达到性能预期。运用场景：此类型的测试目前最常见。每个项目的性能点，都需要做性能测试。  </p>
+<p>负载测试，狭义的负载测试，是指对系统不断地增加压力或增加一定压力下的持续时间，直到系统的某项或多项性能指标达到安全临界值，例如某种资源已经达到饱和状态等。运用场景：此类型的测试目前运用得比较少。一般情况下，是以服务器资源安全临界值为界限的测试。如果要模拟某个应用在指定服务器上最大且安全的负载量，则属于负载测试。  </p>
+<p>压力测试，是指超过安全负载的情况下，对系统不断施加压力，是通过确定一个系统的瓶颈或不能接收用户请求的性能点，来获得系统能提供的最大服务级别的测试。运用场景：此类型的测试目前运用得比较少。但对于大型的共享中心或者核心的应用也会用到。  </p>
+<p>稳定性测试，是指被测试系统在特定硬件、软件、网络环境条件下，给系统加载一定业务压力，使系统运行一段较长时间，以此检测系统是否稳定，一般稳定性测试时间为n*12小时。运用场景：此类型的测试目前也最常见，针对需要长时间稳定运行的性能点，需要执行稳定性测试。往往在一个项目的性能测试过程中，会划分出优先级较高的性能点，做稳定性测试。    </p>
+<h4>性能指标</h4>
+<ul>
+<li>
+<p>PV: PageView, 页面浏览量或点击量，用户每次刷新即被计算一次；用户的一次刷新，给服务器造成了一次请求。  </p>
+</li>
+<li>
+<p>UV: UniqueVisitor, 访问你网站的一台计算机客户端为一个访客，0:00 - 24:00 内相同的客户端仅记一次。  </p>
+</li>
+<li>
+<p>TPS: Transaction Per Second 每秒系统处理的交易或事物的数量，衡量系统处理能力的重要指标。  </p>
+</li>
+<li>
+<p>RT: 响应时间，从客户端发送一个请求开始，到客户端接收到从服务器返回的响应结果结束所经历的时间，包括请求发送时间，网络传输时间和服务器处理时间三部分。  </p>
+</li>
+<li>
+<p>VU: Virtual User， 模拟真实业务逻辑步骤的虚拟用户，虚拟用户模拟的操作步骤被记录在虚拟用户脚本中，通常使用并发实现。  </p>
+</li>
+<li>
+<p>TPS波动: 系统性能依赖于特定的硬件、软件代码、应用服务、网络资源等，所以在性能场景执行期间，TPS可能会表现为稳定，或者波动，抑或遵循一定的上升或下降趋势。用TPS波动系数来记录这个指标值。  </p>
+</li>
+<li>
+<p>CPU: CPU资源是指性能测试场景运行的这个时间段内，应用服务系统的CPU资源占用率。CPU资源是判断系统处理能力以及应用运行是否稳定的重要参数。  </p>
+</li>
+<li>
+<p>Load: 系统正在干活的多少的度量，队列长度。系统平均负载，被定义为在特定时间间隔（1m，5m，15m）内运行队列中的平均进程数。  </p>
+</li>
+<li>
+<p>I/O: I/O可分为磁盘IO和网卡IO。  </p>
+</li>
+<li>
+<p>JVM: 即java虚拟机，它拥有自己的处理器、堆栈、寄存器等，还有自己相应的指令系统。Java应用运行在JVM上面。  </p>
+</li>
+<li>
+<p>GC: GC是一种自动内存管理程序，它主要的职责是分配内存、保证被引用的对象始终在内存中、把不被应用的对象从内存中释放。FGC会引起JVM挂起。  </p>
+</li>
+<li>
+<p>网速: 网络中的数据传输速率，一般以Byte/s为单位。通过ping延时来反映网速。  </p>
+</li>
+<li>
+<p>流量: 性能测试中，一般指单位时间内流经网卡的总流量。分为inbound和outbound，一般以KB为单位。  </p>
+</li>
+<li>
+<p>VU（并发压测用户数） = TPS（每秒执行事务数） × RT（响应时间）  </p>
+</li>
+<li>
+<p>在寻找合适的并发用户数上，建议使用PTS(淘宝性能自动化：https://pts.aliyun.com/lite/index.htm?spm=0 …</p></li></ul>
+      <a class="btn" href="https://xmenfolk.github.io/posts/thePerformanceTest/#thePerformanceTest">Continue reading</a>
+  </div>
+</article>
+
+  <div class="pagination">
+  </div>
+
+    <footer>
+      <p>&copy; Angie 2017</p>
+      <!--
+        <p>&copy; Angie 2017</p>
+<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>      -->
+    </footer>
+  </main>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76772420-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-XX3242XX" async="async"></script>
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Angie's Blog ",
+  "url" : "https://xmenfolk.github.io",
+  "image": "/images/profile.jpg",
+  "description": "Angie's Thoughts and Writings"
+}
+</script><script type="text/javascript">
+    var disqus_shortname = 'test-test';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

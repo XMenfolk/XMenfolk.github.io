@@ -46,7 +46,7 @@
         </ul>
       </nav>
       <ul class="social">
-        <li><a class="sc-weibo" href="http://weibo.com/1674094122/profile?topnav=1&wvr=6&is_all=1" target="_blank"><i class="fa fa-weibo"></i></a></li>
+        <li><a class="sc-facebook" href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
         <li><a class="sc-github" href="https://github.com/XMenfolk" target="_blank"><i class="fa fa-github"></i></a></li>
         <li><a class="sc-google" href="https://google.com.hk" target="_blank"><i class="fa fa-google"></i></a></li>
       </ul>
@@ -66,6 +66,58 @@
       <a href="https://xmenfolk.github.io/feeds/all.atom.xml">Atom</a>
     </nav>
 
+<article>
+  <header>
+    <h2><a href="https://xmenfolk.github.io/posts/kafkaIntroduction/">KafKa入门</a></h2>
+    <p>
+      Posted on 周三 19 四月 2017 in <a href="https://xmenfolk.github.io/category/ji-zhu-jia-gou.html">[技术架构]</a>
+      &#8226; Tagged with
+      <a href="https://xmenfolk.github.io/tag/technologyarchitecture.html">[TechnologyArchitecture]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/kafkaIntroduction/#disqus_thread">Leave a comment</a>
+    </p>
+  </header>
+  <div>
+      <h3>kafka背景</h3>
+<p>Kafka最初是由LinkedIn开发，并于2011年成为Apache的一个开源项目，随后在2012变为Apache的一个顶级项目。kafka是由Scala和Java语言编写的的。Kafka是一个基于发布-订阅，具有容错的消息系统。具有高性能，可扩展，分布式等特性。</p>
+<h3>kafka介绍</h3>
+<p>在大数据领域中，我们会使用了大量的数据。 关于大数据，我们有两个主要挑战。第一个挑战是如何收集大量的数据，第二个挑战是分析收集到的数据。为了克服这些挑战，你需要一个消息系统。Kafka的设计目标就是称为一个分布式，高吞吐量的消息系统。Kafka也可以作为一个传统的消息中间件的替代品。 与其他消息系统相比，Kafka具有更好的吞吐量，内置分区，复制和固有的容错能力，这使得它非常适合大规模消息处理应用程序。</p>
+<h4>什么是消息系统？</h4>
+<p>消息系统负责将数据从一个应用程序传输到另一个应用程序，因此应用程序可以专注于数据，但不用关心消息如何共享。 分布式消息传递基于可靠消息队列的概念。 消息在客户端应用程序和消息传递系统之间异步排队。 有两种类型的消息模式可用：一种是点对点，另一种是发布-订阅（pub-sub）消息系统。 大多数消息模式遵循pub-sub。</p>
+<h4>点对点消息系统</h4>
+<p>在点对点消息系统中，消息被保留在队列中。 一个或多个消费者可以消费队列中的消息，但是特定消息最多只能由一个消费者消费。 一旦消费者读取队列中的消息，它就从该队列中消失。 该系统的典型示例是订单处理系统，其中每个订单将由一个订单处理器处理，但多个订单处理器也可以同时工作。 下图描述了结构。  </p>
+<p><img alt="01" src="/postsimage/kafkaIntroduction/point-to-point-model.jpeg">  </p>
+<h4>发布-订阅消息系统</h4>
+<p>在发布-订阅系统中，消息被保留在一个主题中。与点对点系统不同，消费者可以订阅一个或多个主题并使用该主题中的所有消息。在发布-订阅系统中，消息生产者称为发布者，消息使用者称为订阅者。 一个现实生活的例子是Dish电视，它发布不同的渠道，如运动，电影，音乐等，任何人都可以订阅自己的频道集，并在这些订阅的频道可用时获得它们。<br>
+<img alt="02" src="/postsimage/kafkaIntroduction/pub-sub-model.jpeg">  </p>
+<h4>kafka是什么？</h4>
+<p>Apache Kafka是一个分布式发布 - 订阅消息系统和一个强大的队列，可以处理大量的数据，并使您能够将消息从一个端点传递到另一个端点。 Kafka适合离线和在线消息消费。 Kafka消息保留在磁盘上，并在群集内复制以防止数据丢失。 Kafka构建在ZooKeeper同步服务之上。 它与Apache Storm和Spark非常好地集成，用于实时流式数据分析。</p>
+<h4>优点</h4>
+<p>以下是Kafka的几个优点：</p>
+<p>可靠性 - Kafka 是一个分布式，消息分区的，拥有消息复制和容错的系统。
+扩展性 - Kafka消息系统可以实现在线扩展
+可用性 - Kafka 使用 “分布式的commit log”，这也意味着消息会尽可能快的持久化到磁盘。
+高性能 - Kafka 针对消息发送和消费都有很高的吞吐量。 即使保存了TB级别的数据性能也不会下降。</p>
+<p>Kafka 非常快并保证零宕机和零消息丢失。</p>
+<h4>用例</h4>
+<p>kafka通常用于下面的使用场景：</p>
+<ul>
+<li>监控
+Kafka通常用于监控数据的操作。 这涉及聚合来自分布式应用程序的统计信息，以产生集中化的操作数据。</li>
+<li>日志聚合方案
+kafka可以用来收集跨组织的多个服务的日志，并将这些日志转为统一的格式供消费者使用。</li>
+<li>流式处理
+流行的实时计算框架，如Storm和Spark流式读取topic中的数据进行处理，然后将处理的结果写入新的，用户或应用需要使用的topic中。Kafka强大的持久性功能在流式处理上下文中也是非常有用的。</li>
+</ul>
+<h4>need for Kafka</h4>
+<p>Kafka是一个统一的平台，用于处理所有实时数据Feed。 Kafka支持低延迟消息传递，并在出现机器故障时提供对容错的保证。它具有处理大量不同消费者的能力。 Kafka非常快，执行2百万w/s。 Kafka将所有数据保存到磁盘，这实质上意味着所有写入都会进入操作系统（RAM）的页面缓存。 这使得将数据从页面缓存传输到网络套接字非常有效。  </p>
+<h3>Kafka基础概念</h3>
+<p>在深入了解Kafka之前，你应该先了解一些基本的术语。像topics,brokers,producers,consumers。下图说明了主要的术语并且表格对这些术语进行了详细的解释。
+<img alt="03" src="/postsimage/kafkaIntroduction/kafka-foundamental.jpeg"><br>
+在上图中一个topic被配置为拥有3个分区，分区1包含两个偏移因子0和1。分区2包含4个偏移因子0, 1, 2 和 3。分区3包含1个偏移因子0。 分区副本的id和该副本所在的broker的id一致。</p>
+<p>假设，如果一个topic配置的副本因子为3，则kafka会针对该topic的每个分区创建3个独立的副本并将这些副本尽量均匀分散到集群的每个节点上 …</p>
+      <a class="btn" href="https://xmenfolk.github.io/posts/kafkaIntroduction/#kafkaIntroduction">Continue reading</a>
+  </div>
+  <hr />
+</article>
 <article>
   <header>
     <h2><a href="https://xmenfolk.github.io/posts/thePerformanceTest/">性能测试之监控指标</a></h2>
@@ -334,103 +386,6 @@ cp /data/car-home/car-home-api/target/ROOT.war /data/tomcat/tomcat_testProject/w
 <h4>其他开源库</h4>
 <p>moco</p>
       <a class="btn" href="https://xmenfolk.github.io/posts/intefacetestBase/#intefacetestBase">Continue reading</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://xmenfolk.github.io/posts/intefacetestExample/">接口测试之实例篇</a></h2>
-    <p>
-      Posted on 周三 20 四月 2016 in <a href="https://xmenfolk.github.io/category/jie-kou-ce-shi.html">[接口测试]</a>
-      &#8226; Tagged with
-      <a href="https://xmenfolk.github.io/tag/jie-kou-ce-shi.html">[接口测试]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/intefacetestExample/#disqus_thread">Leave a comment</a>
-    </p>
-  </header>
-  <div>
-      <h4>一、测试需求描述</h4>
-<p>1、 本次测试的接口为http服务端接口<br>
-  2、 接口的主要分成两类，一类提供给查询功能接口，一类提供保存数据功能接口，这里我们举例2个保存数据的接口，因为这两个接口有关联性，比较有代表性；<br>
-  3、接口描述：  </p>
-<p>保存信用卡账户信息接口：<br>
-传入参数：</p>
-<div class="highlight"><pre><span></span><span class="err">args=</span><span class="p">{</span>
-   <span class="nt">&quot;clientNo&quot;</span><span class="p">:</span><span class="s2">&quot;434343556&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;**信用卡2&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;cardName&quot;</span><span class="p">:</span> <span class="s2">&quot;长城*****卡2&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;cardNo&quot;</span><span class="p">:</span> <span class="s2">&quot;25622356788251&quot;</span><span class="p">,</span>
- <span class="p">}</span>
-</pre></div>
-
-
-<p>传出参数：<br>
-1)保存成功：</p>
-<div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;returnMsg&quot;</span><span class="p">:</span><span class="s2">&quot;保存成功&quot;</span><span class="p">}</span>
-</pre></div>
-
-
-<p>2)保存失败：</p>
-<div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="nt">&quot;returnMsg&quot;</span><span class="p">:</span><span class="s2">&quot;保存失败&quot;</span><span class="p">}</span>
-</pre></div>
-
-
-<p>保存逻辑：数据传入进来，验证通过，保存到信用卡账户表中</p>
-<p>保存信用卡账单接口：
-传入参数：</p>
-<div class="highlight"><pre><span></span><span class="err">args=</span><span class="p">{</span>
-   <span class="nt">&quot;clientNo&quot;</span><span class="p">:</span><span class="s2">&quot;434343556&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;accountName&quot;</span><span class="p">:</span> <span class="s2">&quot;测试&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;billDate&quot;</span><span class="p">:</span> <span class="s2">&quot;08&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;billMonth&quot;</span><span class="p">:</span> <span class="s2">&quot;201509&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;cardNo&quot;</span><span class="p">:</span> <span class="s2">&quot;25622356788251&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;currentPayment&quot;</span><span class="p">:</span> <span class="s2">&quot;欠款459.80&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;paymentDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-09-25 09:00:00&quot;</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>传出参数：<br>
-1)保存成功：</p>
-<div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;returnMsg&quot;</span><span class="p">:</span><span class="s2">&quot;保存成功&quot;</span><span class="p">}</span>
-</pre></div>
-
-
-<p>2)保存失败：</p>
-<div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="nt">&quot;returnMsg&quot;</span><span class="p">:</span><span class="s2">&quot;保存失败&quot;</span><span class="p">}</span>
-</pre></div>
-
-
-<p>保存逻辑：保存时先去信用卡信息表查看clientNo对应的表是否存在，如存在则数据校验通过，将数据保存进入信用卡账单表</p>
-<p>注：这个保存逻辑在接口开发设计文档中可能没有写或写的不详细，这时要与开发接口人员或产品人员多多沟通去熟悉接口逻辑</p>
-<h4>二、测试分析</h4>
-<p>1、逻辑分析<br>
-      1)、从保存逻辑上来看，这两个接口明显是有依赖关系的，所以我们先测试信用卡账户信息接口，再测试保存信用卡账单接口<br>
-      2)、接口传入的数据，最终是保存到数据库中，所以当接口返回保存成功的时候，我们也要去对应的数据库表中核对相应的数据(这里可以用jmeter链接数据库进行操作代理手工)<br>
-      3)、当出现保存失败的情况时，我们需要查看系统的日志，所以我们也要准备好查看日志的权限和地址  </p>
-<p>2、测试工具的准备<br>
-      1)、单个接口测试，使用poster/postman<br>
-      2)、多个接口测试，我们使用Jmeter进行测试  </p>
-<h4>三、使用工具测试</h4>
-<p>本实例中使用Jmeter对接口进行测试  </p>
-<p>首先我们说一下为什么用Poster测试后我们还要用Jmeter做接口测试，在用poster测试时候会发现的是一个接口一个接口的测试，我们每次测试成功后的数据，在工具中是无法保存的，再次测试的时候我们还要重新输入测试的数据，当我们测试一个接口的时候可能感觉不明显，但是当你测试几十个接口的时候，你就会发现使用Jmeter的好处，如果按测试阶段来说冒烟测试我们用poster，集成测试我们用Jmeter  </p>
-<h4>四、使用Jmeter接口测试</h4>
-<p>1、首先邮件添加一个线程组，这里我们重命名InterfaceTest<br>
-<img alt="01" src="/postsimage/post01/01.png"></p>
-<p><img alt="02" src="/postsimage/post01/02.png"></p>
-<p>2、在线程组上添加一个Http默认请求，并配置服务器的IP地址和传输编码  </p>
-<p><img alt="03" src="/postsimage/post01/03.png"></p>
-<p><img alt="04" src="/postsimage/post01/04.png"></p>
-<p>3、在线程组中添加一个HTTP请求，这里我们重命名“增加信用卡账户信息接口”</p>
-<p><img alt="05" src="/postsimage/post01/05.png"></p>
-<p><img alt="06" src="/postsimage/post01/06.png"></p>
-<p>4、配置接口请求信息，这配置示例如下：</p>
-<p><img alt="07" src="/postsimage/post01/07.png"></p>
-<p>5、在保存信用卡账单接口请求，示例如下：</p>
-<p><img alt="08" src="/postsimage/post01/08.png"></p>
-<p>注：由于Jmeter请求线程组内的请求时从第一个开始执行，所以我们将需要最先执行的请求放在前面</p>
-<p>6、在线程组上添加监听器，察看结果树和聚合报告</p>
-<p><img alt="09" src="/postsimage/post01/09.png"></p>
-<p>7、点击启动 …</p>
-      <a class="btn" href="https://xmenfolk.github.io/posts/intefacetestExample/#intefacetestExample">Continue reading</a>
   </div>
 </article>
 

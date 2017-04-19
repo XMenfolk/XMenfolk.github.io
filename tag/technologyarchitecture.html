@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet/less" type="text/css" href="https://xmenfolk.github.io/theme/stylesheet/style.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://xmenfolk.github.io/theme/stylesheet/pygments.min.css">
+  <link rel="stylesheet" type="text/css" href="https://xmenfolk.github.io/theme/stylesheet/font-awesome.min.css">
+
+
+    <link href="https://xmenfolk.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Angie's Blog Atom">
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+    <meta name="author" content="Angie" />
+    <meta name="description" content="Angie's Thoughts and Writings" />
+<meta property="og:site_name" content="Angie's Blog"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="Angie's Blog"/>
+<meta property="og:description" content="Angie's Thoughts and Writings"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://xmenfolk.github.io"/>
+<meta property="og:image" content="/images/profile.jpg">
+
+  <title>Angie's Blog &ndash; Tag: [TechnologyArchitecture]</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://xmenfolk.github.io">
+        <img src="/images/profile.jpg" alt="Angie" title="Angie">
+      </a>
+      <h1><a href="https://xmenfolk.github.io">Angie</a></h1>
+      <p>A programmer who love rock and roll</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/pages/about.html">关于自己</a></li>
+        </ul>
+      </nav>
+      <ul class="social">
+        <li><a class="sc-facebook" href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/XMenfolk" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-google" href="https://google.com.hk" target="_blank"><i class="fa fa-google"></i></a></li>
+      </ul>
+    </div>
+
+    <!--form class="navbar-search pull-right" action="/search.html">
+      <input type="text" class="search-query" placeholder="Search" name="q" id="s">
+   </form>-->
+
+  </aside>
+  <main>
+    <nav>
+      <a href="https://xmenfolk.github.io">Home</a>
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+      <a href="https://xmenfolk.github.io/feeds/all.atom.xml">Atom</a>
+    </nav>
+
+<article>
+  <header>
+    <h2><a href="https://xmenfolk.github.io/posts/kafkaIntroduction/">KafKa入门</a></h2>
+    <p>
+      Posted on 周三 19 四月 2017 in <a href="https://xmenfolk.github.io/category/ji-zhu-jia-gou.html">[技术架构]</a>
+      &#8226; Tagged with
+      <a href="https://xmenfolk.github.io/tag/technologyarchitecture.html">[TechnologyArchitecture]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/kafkaIntroduction/#disqus_thread">Leave a comment</a>
+    </p>
+  </header>
+  <div>
+      <h3>kafka背景</h3>
+<p>Kafka最初是由LinkedIn开发，并于2011年成为Apache的一个开源项目，随后在2012变为Apache的一个顶级项目。kafka是由Scala和Java语言编写的的。Kafka是一个基于发布-订阅，具有容错的消息系统。具有高性能，可扩展，分布式等特性。</p>
+<h3>kafka介绍</h3>
+<p>在大数据领域中，我们会使用了大量的数据。 关于大数据，我们有两个主要挑战。第一个挑战是如何收集大量的数据，第二个挑战是分析收集到的数据。为了克服这些挑战，你需要一个消息系统。Kafka的设计目标就是称为一个分布式，高吞吐量的消息系统。Kafka也可以作为一个传统的消息中间件的替代品。 与其他消息系统相比，Kafka具有更好的吞吐量，内置分区，复制和固有的容错能力，这使得它非常适合大规模消息处理应用程序。</p>
+<h4>什么是消息系统？</h4>
+<p>消息系统负责将数据从一个应用程序传输到另一个应用程序，因此应用程序可以专注于数据，但不用关心消息如何共享。 分布式消息传递基于可靠消息队列的概念。 消息在客户端应用程序和消息传递系统之间异步排队。 有两种类型的消息模式可用：一种是点对点，另一种是发布-订阅（pub-sub）消息系统。 大多数消息模式遵循pub-sub。</p>
+<h4>点对点消息系统</h4>
+<p>在点对点消息系统中，消息被保留在队列中。 一个或多个消费者可以消费队列中的消息，但是特定消息最多只能由一个消费者消费。 一旦消费者读取队列中的消息，它就从该队列中消失。 该系统的典型示例是订单处理系统，其中每个订单将由一个订单处理器处理，但多个订单处理器也可以同时工作。 下图描述了结构。  </p>
+<p><img alt="01" src="/postsimage/kafkaIntroduction/point-to-point-model.jpeg">  </p>
+<h4>发布-订阅消息系统</h4>
+<p>在发布-订阅系统中，消息被保留在一个主题中。与点对点系统不同，消费者可以订阅一个或多个主题并使用该主题中的所有消息。在发布-订阅系统中，消息生产者称为发布者，消息使用者称为订阅者。 一个现实生活的例子是Dish电视，它发布不同的渠道，如运动，电影，音乐等，任何人都可以订阅自己的频道集，并在这些订阅的频道可用时获得它们。<br>
+<img alt="02" src="/postsimage/kafkaIntroduction/pub-sub-model.jpeg">  </p>
+<h4>kafka是什么？</h4>
+<p>Apache Kafka是一个分布式发布 - 订阅消息系统和一个强大的队列，可以处理大量的数据，并使您能够将消息从一个端点传递到另一个端点。 Kafka适合离线和在线消息消费。 Kafka消息保留在磁盘上，并在群集内复制以防止数据丢失。 Kafka构建在ZooKeeper同步服务之上。 它与Apache Storm和Spark非常好地集成，用于实时流式数据分析。</p>
+<h4>优点</h4>
+<p>以下是Kafka的几个优点：</p>
+<p>可靠性 - Kafka 是一个分布式，消息分区的，拥有消息复制和容错的系统。
+扩展性 - Kafka消息系统可以实现在线扩展
+可用性 - Kafka 使用 “分布式的commit log”，这也意味着消息会尽可能快的持久化到磁盘。
+高性能 - Kafka 针对消息发送和消费都有很高的吞吐量。 即使保存了TB级别的数据性能也不会下降。</p>
+<p>Kafka 非常快并保证零宕机和零消息丢失。</p>
+<h4>用例</h4>
+<p>kafka通常用于下面的使用场景：</p>
+<ul>
+<li>监控
+Kafka通常用于监控数据的操作。 这涉及聚合来自分布式应用程序的统计信息，以产生集中化的操作数据。</li>
+<li>日志聚合方案
+kafka可以用来收集跨组织的多个服务的日志，并将这些日志转为统一的格式供消费者使用。</li>
+<li>流式处理
+流行的实时计算框架，如Storm和Spark流式读取topic中的数据进行处理，然后将处理的结果写入新的，用户或应用需要使用的topic中。Kafka强大的持久性功能在流式处理上下文中也是非常有用的。</li>
+</ul>
+<h4>need for Kafka</h4>
+<p>Kafka是一个统一的平台，用于处理所有实时数据Feed。 Kafka支持低延迟消息传递，并在出现机器故障时提供对容错的保证。它具有处理大量不同消费者的能力。 Kafka非常快，执行2百万w/s。 Kafka将所有数据保存到磁盘，这实质上意味着所有写入都会进入操作系统（RAM）的页面缓存。 这使得将数据从页面缓存传输到网络套接字非常有效。  </p>
+<h3>Kafka基础概念</h3>
+<p>在深入了解Kafka之前，你应该先了解一些基本的术语。像topics,brokers,producers,consumers。下图说明了主要的术语并且表格对这些术语进行了详细的解释。
+<img alt="03" src="/postsimage/kafkaIntroduction/kafka-foundamental.jpeg"><br>
+在上图中一个topic被配置为拥有3个分区，分区1包含两个偏移因子0和1。分区2包含4个偏移因子0, 1, 2 和 3。分区3包含1个偏移因子0。 分区副本的id和该副本所在的broker的id一致。</p>
+<p>假设，如果一个topic配置的副本因子为3，则kafka会针对该topic的每个分区创建3个独立的副本并将这些副本尽量均匀分散到集群的每个节点上 …</p>
+      <a class="btn" href="https://xmenfolk.github.io/posts/kafkaIntroduction/#kafkaIntroduction">Continue reading</a>
+  </div>
+</article>
+
+  <div class="pagination">
+  </div>
+
+    <footer>
+      <p>&copy; Angie 2017</p>
+      <!--
+        <p>&copy; Angie 2017</p>
+<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>      -->
+    </footer>
+  </main>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76772420-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-XX3242XX" async="async"></script>
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Angie's Blog ",
+  "url" : "https://xmenfolk.github.io",
+  "image": "/images/profile.jpg",
+  "description": "Angie's Thoughts and Writings"
+}
+</script><script type="text/javascript">
+    var disqus_shortname = 'test-test';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

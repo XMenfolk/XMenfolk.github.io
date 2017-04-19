@@ -46,7 +46,7 @@
         </ul>
       </nav>
       <ul class="social">
-        <li><a class="sc-weibo" href="http://weibo.com/1674094122/profile?topnav=1&wvr=6&is_all=1" target="_blank"><i class="fa fa-weibo"></i></a></li>
+        <li><a class="sc-facebook" href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
         <li><a class="sc-github" href="https://github.com/XMenfolk" target="_blank"><i class="fa fa-github"></i></a></li>
         <li><a class="sc-google" href="https://google.com.hk" target="_blank"><i class="fa fa-google"></i></a></li>
       </ul>
@@ -66,6 +66,103 @@
       <a href="https://xmenfolk.github.io/feeds/all.atom.xml">Atom</a>
     </nav>
 
+<article>
+  <header>
+    <h2><a href="https://xmenfolk.github.io/posts/intefacetestExample/">接口测试之实例篇</a></h2>
+    <p>
+      Posted on 周三 20 四月 2016 in <a href="https://xmenfolk.github.io/category/jie-kou-ce-shi.html">[接口测试]</a>
+      &#8226; Tagged with
+      <a href="https://xmenfolk.github.io/tag/jie-kou-ce-shi.html">[接口测试]</a>      &#8226; <a href="https://xmenfolk.github.io/posts/intefacetestExample/#disqus_thread">Leave a comment</a>
+    </p>
+  </header>
+  <div>
+      <h4>一、测试需求描述</h4>
+<p>1、 本次测试的接口为http服务端接口<br>
+  2、 接口的主要分成两类，一类提供给查询功能接口，一类提供保存数据功能接口，这里我们举例2个保存数据的接口，因为这两个接口有关联性，比较有代表性；<br>
+  3、接口描述：  </p>
+<p>保存信用卡账户信息接口：<br>
+传入参数：</p>
+<div class="highlight"><pre><span></span><span class="err">args=</span><span class="p">{</span>
+   <span class="nt">&quot;clientNo&quot;</span><span class="p">:</span><span class="s2">&quot;434343556&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;**信用卡2&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;cardName&quot;</span><span class="p">:</span> <span class="s2">&quot;长城*****卡2&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;cardNo&quot;</span><span class="p">:</span> <span class="s2">&quot;25622356788251&quot;</span><span class="p">,</span>
+ <span class="p">}</span>
+</pre></div>
+
+
+<p>传出参数：<br>
+1)保存成功：</p>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;returnMsg&quot;</span><span class="p">:</span><span class="s2">&quot;保存成功&quot;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>2)保存失败：</p>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="nt">&quot;returnMsg&quot;</span><span class="p">:</span><span class="s2">&quot;保存失败&quot;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>保存逻辑：数据传入进来，验证通过，保存到信用卡账户表中</p>
+<p>保存信用卡账单接口：
+传入参数：</p>
+<div class="highlight"><pre><span></span><span class="err">args=</span><span class="p">{</span>
+   <span class="nt">&quot;clientNo&quot;</span><span class="p">:</span><span class="s2">&quot;434343556&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;accountName&quot;</span><span class="p">:</span> <span class="s2">&quot;测试&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;billDate&quot;</span><span class="p">:</span> <span class="s2">&quot;08&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;billMonth&quot;</span><span class="p">:</span> <span class="s2">&quot;201509&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;cardNo&quot;</span><span class="p">:</span> <span class="s2">&quot;25622356788251&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;currentPayment&quot;</span><span class="p">:</span> <span class="s2">&quot;欠款459.80&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;paymentDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-09-25 09:00:00&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>传出参数：<br>
+1)保存成功：</p>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;returnMsg&quot;</span><span class="p">:</span><span class="s2">&quot;保存成功&quot;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>2)保存失败：</p>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="nt">&quot;returnMsg&quot;</span><span class="p">:</span><span class="s2">&quot;保存失败&quot;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>保存逻辑：保存时先去信用卡信息表查看clientNo对应的表是否存在，如存在则数据校验通过，将数据保存进入信用卡账单表</p>
+<p>注：这个保存逻辑在接口开发设计文档中可能没有写或写的不详细，这时要与开发接口人员或产品人员多多沟通去熟悉接口逻辑</p>
+<h4>二、测试分析</h4>
+<p>1、逻辑分析<br>
+      1)、从保存逻辑上来看，这两个接口明显是有依赖关系的，所以我们先测试信用卡账户信息接口，再测试保存信用卡账单接口<br>
+      2)、接口传入的数据，最终是保存到数据库中，所以当接口返回保存成功的时候，我们也要去对应的数据库表中核对相应的数据(这里可以用jmeter链接数据库进行操作代理手工)<br>
+      3)、当出现保存失败的情况时，我们需要查看系统的日志，所以我们也要准备好查看日志的权限和地址  </p>
+<p>2、测试工具的准备<br>
+      1)、单个接口测试，使用poster/postman<br>
+      2)、多个接口测试，我们使用Jmeter进行测试  </p>
+<h4>三、使用工具测试</h4>
+<p>本实例中使用Jmeter对接口进行测试  </p>
+<p>首先我们说一下为什么用Poster测试后我们还要用Jmeter做接口测试，在用poster测试时候会发现的是一个接口一个接口的测试，我们每次测试成功后的数据，在工具中是无法保存的，再次测试的时候我们还要重新输入测试的数据，当我们测试一个接口的时候可能感觉不明显，但是当你测试几十个接口的时候，你就会发现使用Jmeter的好处，如果按测试阶段来说冒烟测试我们用poster，集成测试我们用Jmeter  </p>
+<h4>四、使用Jmeter接口测试</h4>
+<p>1、首先邮件添加一个线程组，这里我们重命名InterfaceTest<br>
+<img alt="01" src="/postsimage/post01/01.png"></p>
+<p><img alt="02" src="/postsimage/post01/02.png"></p>
+<p>2、在线程组上添加一个Http默认请求，并配置服务器的IP地址和传输编码  </p>
+<p><img alt="03" src="/postsimage/post01/03.png"></p>
+<p><img alt="04" src="/postsimage/post01/04.png"></p>
+<p>3、在线程组中添加一个HTTP请求，这里我们重命名“增加信用卡账户信息接口”</p>
+<p><img alt="05" src="/postsimage/post01/05.png"></p>
+<p><img alt="06" src="/postsimage/post01/06.png"></p>
+<p>4、配置接口请求信息，这配置示例如下：</p>
+<p><img alt="07" src="/postsimage/post01/07.png"></p>
+<p>5、在保存信用卡账单接口请求，示例如下：</p>
+<p><img alt="08" src="/postsimage/post01/08.png"></p>
+<p>注：由于Jmeter请求线程组内的请求时从第一个开始执行，所以我们将需要最先执行的请求放在前面</p>
+<p>6、在线程组上添加监听器，察看结果树和聚合报告</p>
+<p><img alt="09" src="/postsimage/post01/09.png"></p>
+<p>7、点击启动 …</p>
+      <a class="btn" href="https://xmenfolk.github.io/posts/intefacetestExample/#intefacetestExample">Continue reading</a>
+  </div>
+  <hr />
+</article>
 <article>
   <header>
     <h2><a href="https://xmenfolk.github.io/posts/intefacetestMock/">接口测试之Moco篇</a></h2>
